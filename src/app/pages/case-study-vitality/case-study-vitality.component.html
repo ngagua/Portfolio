@@ -3,11 +3,10 @@
     <a
       class="self-start text-sm text-muted mb-4 transition-colors hover:text-primary"
       routerLink="/"
-      i18n
     >
       ← Back to home
     </a>
-    <p class="eyebrow" i18n>Case study</p>
+    <p class="eyebrow">Case study</p>
     <h1
       class="font-display font-semibold text-foreground max-w-[24ch] leading-[1.05] text-[clamp(2rem,5vw,3.5rem)]"
     >
@@ -25,11 +24,11 @@
     class="container-x grid gap-8 py-12 border-b border-border md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] md:gap-12"
   >
     <div>
-      <h3 class="case-meta-label" i18n>Role</h3>
+      <h3 class="case-meta-label">Role</h3>
       <p class="text-foreground">{{ study.role }}</p>
     </div>
     <div>
-      <h3 class="case-meta-label" i18n>Stack</h3>
+      <h3 class="case-meta-label">Stack</h3>
       <ul class="flex flex-wrap gap-2 list-none p-0 m-0">
         @for (tech of study.stack; track tech) {
           <li class="chip">{{ tech }}</li>
@@ -39,7 +38,7 @@
   </section>
 
   <section class="container-x flex flex-col gap-6 py-12 border-b border-border">
-    <h2 class="font-display font-semibold text-foreground text-[clamp(1.5rem,3vw,2.25rem)]" i18n>
+    <h2 class="font-display font-semibold text-foreground text-[clamp(1.5rem,3vw,2.25rem)]">
       The problem
     </h2>
     <p
@@ -50,7 +49,7 @@
   </section>
 
   <section class="container-x flex flex-col gap-6 py-12 border-b border-border">
-    <h2 class="font-display font-semibold text-foreground text-[clamp(1.5rem,3vw,2.25rem)]" i18n>
+    <h2 class="font-display font-semibold text-foreground text-[clamp(1.5rem,3vw,2.25rem)]">
       The approach
     </h2>
     <ul class="flex flex-col gap-6 list-none p-0 m-0">
@@ -64,7 +63,7 @@
   </section>
 
   <section class="container-x flex flex-col gap-6 py-12">
-    <h2 class="font-display font-semibold text-foreground text-[clamp(1.5rem,3vw,2.25rem)]" i18n>
+    <h2 class="font-display font-semibold text-foreground text-[clamp(1.5rem,3vw,2.25rem)]">
       Outcomes
     </h2>
     <ul class="flex flex-col gap-3.5 list-none p-0 m-0">
@@ -91,11 +90,10 @@
   </section>
 
   <section class="container-x flex flex-col items-start gap-3 pt-12">
-    <p class="text-base text-muted" i18n>Want to see more?</p>
+    <p class="text-base text-muted">Want to see more?</p>
     <a
       class="font-medium text-primary-strong border-b border-primary-soft pb-1 transition-colors hover:text-foreground hover:border-primary"
       routerLink="/"
-      i18n
     >
       Back to selected work →
     </a>

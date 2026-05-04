@@ -9,8 +9,8 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
     <section id="about" class="container-x section">
       <div class="grid items-start gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:gap-16">
         <header class="lg:sticky lg:top-24" appReveal>
-          <p class="eyebrow" i18n>About</p>
-          <h2 class="section-title mt-4" i18n>
+          <p class="eyebrow">About</p>
+          <h2 class="section-title mt-4">
             Engineer who codes the front,
             <br />
             owns the back, and ships the whole.
@@ -29,19 +29,19 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
       <ul class="stats-grid" appReveal>
         <li>
           <span class="stat-num">3+</span>
-          <span class="stat-label" i18n>Years contracting at Vitality Group</span>
+          <span class="stat-label">Years contracting at Vitality Group</span>
         </li>
         <li>
           <span class="stat-num">12</span>
-          <span class="stat-label" i18n>Years leading public-sector teams</span>
+          <span class="stat-label">Years leading public-sector teams</span>
         </li>
         <li>
           <span class="stat-num">60</span>
-          <span class="stat-label" i18n>People managed at peak</span>
+          <span class="stat-label">People managed at peak</span>
         </li>
         <li>
           <span class="stat-num">3</span>
-          <span class="stat-label" i18n>Languages spoken (EN · KA · RU)</span>
+          <span class="stat-label">Languages spoken (EN · KA · RU)</span>
         </li>
       </ul>
     </section>

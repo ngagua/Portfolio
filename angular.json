@@ -17,22 +17,11 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
-      "i18n": {
-        "sourceLocale": "en-US",
-        "locales": {
-          "ka": {
-            "translation": "src/locale/messages.ka.xlf"
-          }
-        }
-      },
       "architect": {
         "build": {
           "builder": "@angular/build:application",
           "options": {
             "browser": "src/main.ts",
-            "polyfills": [
-              "@angular/localize/init"
-            ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -64,8 +53,7 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all",
-              "localize": true
+              "outputHashing": "all"
             },
             "development": {
               "optimization": false,

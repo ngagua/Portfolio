@@ -8,9 +8,9 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
   template: `
     <section id="skills" class="container-x section">
       <header class="max-w-[60ch]" appReveal>
-        <p class="eyebrow" i18n>Toolkit</p>
-        <h2 class="section-title mt-4" i18n>The stack I reach for.</h2>
-        <p class="section-lead" i18n>
+        <p class="eyebrow">Toolkit</p>
+        <h2 class="section-title mt-4">The stack I reach for.</h2>
+        <p class="section-lead">
           Picked over years on real projects — front-end frameworks, back-end services, CMS, and the
           tooling that ties them together.
         </p>

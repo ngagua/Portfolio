@@ -1,4 +1,4 @@
-<a class="skip-link" href="#main" i18n>Skip to content</a>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <div class="container-x flex items-center justify-between gap-6 py-3.5">
   <a
@@ -28,40 +28,9 @@
   </nav>
 
   <div class="flex items-center gap-3">
-    <div
-      class="inline-flex items-center gap-1.5 font-display font-medium text-xs uppercase tracking-[0.12em]"
-      role="group"
-      aria-label="Language"
-    >
-      <button
-        type="button"
-        class="px-1.5 py-0.5 rounded transition-colors"
-        [class.text-primary]="currentLang === 'en'"
-        [class.text-muted]="currentLang !== 'en'"
-        [class.hover:text-foreground]="currentLang !== 'en'"
-        [attr.aria-pressed]="currentLang === 'en'"
-        (click)="switchLang('en')"
-      >
-        EN
-      </button>
-      <span class="text-border" aria-hidden="true">/</span>
-      <button
-        type="button"
-        class="px-1.5 py-0.5 rounded transition-colors"
-        [class.text-primary]="currentLang === 'ka'"
-        [class.text-muted]="currentLang !== 'ka'"
-        [class.hover:text-foreground]="currentLang !== 'ka'"
-        [attr.aria-pressed]="currentLang === 'ka'"
-        (click)="switchLang('ka')"
-      >
-        KA
-      </button>
-    </div>
-
     <a
       class="hidden md:inline-flex px-4 py-2 rounded-full border border-border text-sm font-medium text-foreground transition-all duration-200 hover:border-primary hover:bg-primary-soft"
       href="#contact"
-      i18n
     >
       Get in touch
     </a>
@@ -99,7 +68,6 @@
       class="inline-flex self-start mt-2 px-4 py-2 rounded-full border border-border text-sm font-medium text-foreground hover:border-primary hover:bg-primary-soft transition-all"
       href="#contact"
       (click)="closeMenu()"
-      i18n
     >
       Get in touch
     </a>

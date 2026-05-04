@@ -14,9 +14,9 @@ interface Pillar {
     <section id="leadership" class="container-x section">
       <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
         <div class="flex flex-col gap-6" appReveal>
-          <p class="eyebrow" i18n>Before software</p>
-          <h2 class="section-title" i18n>A decade of leading public-sector teams.</h2>
-          <p class="section-lead" i18n>
+          <p class="eyebrow">Before software</p>
+          <h2 class="section-title">A decade of leading public-sector teams.</h2>
+          <p class="section-lead">
             From 2010 to 2022, I served at the
             <strong class="text-foreground font-semibold">Georgia Revenue Service</strong>, holding
             several roles culminating in
@@ -26,7 +26,7 @@ interface Pillar {
             across multi-stakeholder projects with public and private partners — strategic planning,
             delivery oversight, and team growth.
           </p>
-          <p class="section-lead" i18n>
+          <p class="section-lead">
             That background still shapes the way I work as an engineer: I scope before I code, write
             documentation that survives a hand-off, and keep the people who depend on the system in
             the picture.
@@ -42,10 +42,10 @@ interface Pillar {
                 {{ pillar.num }}
               </span>
               <div>
-                <h3 class="font-display font-semibold text-lg text-foreground mb-1.5" i18n>
+                <h3 class="font-display font-semibold text-lg text-foreground mb-1.5">
                   {{ pillar.title }}
                 </h3>
-                <p class="text-base" i18n>{{ pillar.body }}</p>
+                <p class="text-base">{{ pillar.body }}</p>
               </div>
             </li>
           }
