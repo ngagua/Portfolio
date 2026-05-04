@@ -1,0 +1,16 @@
+@reference '../../../styles.scss';
+
+.skill-card {
+  @apply p-7 bg-card border border-border transition-all duration-300;
+  border-radius: var(--radius-card);
+
+  &:hover {
+    @apply border-primary bg-card-2;
+    transform: translateY(-2px);
+  }
+}
+
+.skill-label {
+  @apply font-display font-medium uppercase text-primary mb-5 text-sm;
+  letter-spacing: 0.18em;
+}

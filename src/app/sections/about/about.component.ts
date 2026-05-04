@@ -6,25 +6,27 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
   selector: 'app-about',
   imports: [RevealOnScrollDirective],
   template: `
-    <section class="container-x section about" id="about">
-      <div class="about-grid">
-        <header class="about-head" appReveal>
+    <section id="about" class="container-x section">
+      <div class="grid items-start gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:gap-16">
+        <header class="lg:sticky lg:top-24" appReveal>
           <p class="eyebrow" i18n>About</p>
-          <h2 class="section-title" i18n>
+          <h2 class="section-title mt-4" i18n>
             Engineer who codes the front,
             <br />
             owns the back, and ships the whole.
           </h2>
         </header>
 
-        <div class="about-body">
+        <div class="flex flex-col gap-5 text-[clamp(1rem,1.3vw,1.125rem)]">
           @for (paragraph of bio; track $index) {
-            <p appReveal [appRevealDelay]="$index * 0.1">{{ paragraph }}</p>
+            <p class="text-muted-foreground" appReveal [appRevealDelay]="$index * 0.1">
+              {{ paragraph }}
+            </p>
           }
         </div>
       </div>
 
-      <ul class="stats" appReveal>
+      <ul class="stats-grid" appReveal>
         <li>
           <span class="stat-num">3+</span>
           <span class="stat-label" i18n>Years contracting at Vitality Group</span>
@@ -44,7 +46,7 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
       </ul>
     </section>
   `,
-  styleUrl: './about.component.css',
+  styleUrl: './about.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutComponent {

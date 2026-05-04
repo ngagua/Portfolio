@@ -12,7 +12,7 @@ type Status = 'idle' | 'submitting' | 'success' | 'error';
   selector: 'app-contact',
   imports: [ReactiveFormsModule, RevealOnScrollDirective],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.css',
+  styleUrl: './contact.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactComponent {

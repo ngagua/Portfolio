@@ -6,7 +6,7 @@ import { vitalityCase } from '../../shared/data/case-studies';
   selector: 'app-case-study-vitality',
   imports: [RouterLink],
   templateUrl: './case-study-vitality.component.html',
-  styleUrl: './case-study-vitality.component.css',
+  styleUrl: './case-study-vitality.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CaseStudyVitalityComponent {

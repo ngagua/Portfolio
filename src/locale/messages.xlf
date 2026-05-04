@@ -3,7 +3,7 @@
   <file id="ngi18n" original="ng.template">
     <unit id="7276674005660784598">
       <notes>
-        <note category="location">src/app/layout/footer/footer.component.html:4,5</note>
+        <note category="location">src/app/layout/footer/footer.component.html:6,7</note>
       </notes>
       <segment>
         <source>Built with Angular, GSAP, and a lot of coffee.</source>
@@ -17,27 +17,26 @@
         <source>Skip to content</source>
       </segment>
     </unit>
-    <unit id="2236877205125634440">
+    <unit id="5443518007260759592">
       <notes>
-        <note category="location">src/app/layout/header/header.component.html:16,17</note>
-        <note category="location">src/app/layout/header/header.component.html:36,37</note>
+        <note category="location">src/app/layout/header/header.component.html:66,67</note>
+        <note category="location">src/app/layout/header/header.component.html:104,105</note>
       </notes>
       <segment>
-        <source>Get in touch</source>
+        <source> Get in touch </source>
       </segment>
     </unit>
-    <unit id="5281310600968490593">
+    <unit id="2252441097427195047">
       <notes>
-        <note category="location">src/app/pages/case-study-vitality/case-study-vitality.component.html:3,4</note>
-        <note category="location">src/app/pages/not-found/not-found.component.ts:14,15</note>
+        <note category="location">src/app/pages/case-study-vitality/case-study-vitality.component.html:8,9</note>
       </notes>
       <segment>
-        <source>← Back to home</source>
+        <source> ← Back to home </source>
       </segment>
     </unit>
     <unit id="1449403956314613846">
       <notes>
-        <note category="location">src/app/pages/case-study-vitality/case-study-vitality.component.html:4,5</note>
+        <note category="location">src/app/pages/case-study-vitality/case-study-vitality.component.html:10,11</note>
       </notes>
       <segment>
         <source>Case study</source>
@@ -45,7 +44,7 @@
     </unit>
     <unit id="4145496584631696119">
       <notes>
-        <note category="location">src/app/pages/case-study-vitality/case-study-vitality.component.html:12,13</note>
+        <note category="location">src/app/pages/case-study-vitality/case-study-vitality.component.html:28,29</note>
       </notes>
       <segment>
         <source>Role</source>
@@ -53,50 +52,50 @@
     </unit>
     <unit id="4212985239102280850">
       <notes>
-        <note category="location">src/app/pages/case-study-vitality/case-study-vitality.component.html:16,17</note>
+        <note category="location">src/app/pages/case-study-vitality/case-study-vitality.component.html:32,33</note>
       </notes>
       <segment>
         <source>Stack</source>
       </segment>
     </unit>
-    <unit id="2227647351377636935">
-      <notes>
-        <note category="location">src/app/pages/case-study-vitality/case-study-vitality.component.html:26,27</note>
-      </notes>
-      <segment>
-        <source>The problem</source>
-      </segment>
-    </unit>
-    <unit id="3983502776996768087">
-      <notes>
-        <note category="location">src/app/pages/case-study-vitality/case-study-vitality.component.html:31,32</note>
-      </notes>
-      <segment>
-        <source>The approach</source>
-      </segment>
-    </unit>
-    <unit id="2546043182686807679">
+    <unit id="1830067194274118096">
       <notes>
         <note category="location">src/app/pages/case-study-vitality/case-study-vitality.component.html:43,44</note>
       </notes>
       <segment>
-        <source>Outcomes</source>
+        <source> The problem </source>
+      </segment>
+    </unit>
+    <unit id="2505226547469652202">
+      <notes>
+        <note category="location">src/app/pages/case-study-vitality/case-study-vitality.component.html:54,55</note>
+      </notes>
+      <segment>
+        <source> The approach </source>
+      </segment>
+    </unit>
+    <unit id="4779147345179041207">
+      <notes>
+        <note category="location">src/app/pages/case-study-vitality/case-study-vitality.component.html:68,69</note>
+      </notes>
+      <segment>
+        <source> Outcomes </source>
       </segment>
     </unit>
     <unit id="4351814132345454504">
       <notes>
-        <note category="location">src/app/pages/case-study-vitality/case-study-vitality.component.html:67,68</note>
+        <note category="location">src/app/pages/case-study-vitality/case-study-vitality.component.html:94,95</note>
       </notes>
       <segment>
         <source>Want to see more?</source>
       </segment>
     </unit>
-    <unit id="7797387927557370042">
+    <unit id="8508162347415125242">
       <notes>
-        <note category="location">src/app/pages/case-study-vitality/case-study-vitality.component.html:68,69</note>
+        <note category="location">src/app/pages/case-study-vitality/case-study-vitality.component.html:100,101</note>
       </notes>
       <segment>
-        <source>Back to selected work →</source>
+        <source> Back to selected work → </source>
       </segment>
     </unit>
     <unit id="2471041631220366258">
@@ -123,6 +122,14 @@
         <source> That page doesn&apos;t exist (or it never did). Let&apos;s get you back to safer ground. </source>
       </segment>
     </unit>
+    <unit id="5281310600968490593">
+      <notes>
+        <note category="location">src/app/pages/not-found/not-found.component.ts:14,15</note>
+      </notes>
+      <segment>
+        <source>← Back to home</source>
+      </segment>
+    </unit>
     <unit id="1726363342938046830">
       <notes>
         <note category="location">src/app/sections/about/about.component.ts:12,13</note>
@@ -141,7 +148,7 @@
     </unit>
     <unit id="5667042740086454233">
       <notes>
-        <note category="location">src/app/sections/about/about.component.ts:30,31</note>
+        <note category="location">src/app/sections/about/about.component.ts:32,33</note>
       </notes>
       <segment>
         <source>Years contracting at Vitality Group</source>
@@ -149,7 +156,7 @@
     </unit>
     <unit id="767711234059944433">
       <notes>
-        <note category="location">src/app/sections/about/about.component.ts:34,35</note>
+        <note category="location">src/app/sections/about/about.component.ts:36,37</note>
       </notes>
       <segment>
         <source>Years leading public-sector teams</source>
@@ -157,7 +164,7 @@
     </unit>
     <unit id="7747447695562015927">
       <notes>
-        <note category="location">src/app/sections/about/about.component.ts:38,39</note>
+        <note category="location">src/app/sections/about/about.component.ts:40,41</note>
       </notes>
       <segment>
         <source>People managed at peak</source>
@@ -165,7 +172,7 @@
     </unit>
     <unit id="8215262115090675582">
       <notes>
-        <note category="location">src/app/sections/about/about.component.ts:42,43</note>
+        <note category="location">src/app/sections/about/about.component.ts:44,45</note>
       </notes>
       <segment>
         <source>Languages spoken (EN · KA · RU)</source>
@@ -198,7 +205,7 @@
     <unit id="4768749765465246664">
       <notes>
         <note category="location">src/app/sections/contact/contact.component.html:13,14</note>
-        <note category="location">src/app/sections/contact/contact.component.html:44,45</note>
+        <note category="location">src/app/sections/contact/contact.component.html:62,63</note>
       </notes>
       <segment>
         <source>Email</source>
@@ -206,7 +213,7 @@
     </unit>
     <unit id="8203367621031610680">
       <notes>
-        <note category="location">src/app/sections/contact/contact.component.html:29,30</note>
+        <note category="location">src/app/sections/contact/contact.component.html:47,48</note>
       </notes>
       <segment>
         <source>Your name</source>
@@ -214,7 +221,7 @@
     </unit>
     <unit id="205471661533329877">
       <notes>
-        <note category="location">src/app/sections/contact/contact.component.html:39,40</note>
+        <note category="location">src/app/sections/contact/contact.component.html:57,58</note>
       </notes>
       <segment>
         <source>Please tell me your name.</source>
@@ -222,7 +229,7 @@
     </unit>
     <unit id="8761133243614401393">
       <notes>
-        <note category="location">src/app/sections/contact/contact.component.html:54,55</note>
+        <note category="location">src/app/sections/contact/contact.component.html:72,73</note>
       </notes>
       <segment>
         <source>A valid email helps me reply.</source>
@@ -230,23 +237,23 @@
     </unit>
     <unit id="8066608938393600549">
       <notes>
-        <note category="location">src/app/sections/contact/contact.component.html:59,60</note>
+        <note category="location">src/app/sections/contact/contact.component.html:77,78</note>
       </notes>
       <segment>
         <source>Message</source>
       </segment>
     </unit>
-    <unit id="4536335727929614093">
+    <unit id="5721458568172182545">
       <notes>
-        <note category="location">src/app/sections/contact/contact.component.html:68,69</note>
+        <note category="location">src/app/sections/contact/contact.component.html:87</note>
       </notes>
       <segment>
-        <source>Tell me a bit more — at least 10 characters.</source>
+        <source> Tell me a bit more — at least 10 characters. </source>
       </segment>
     </unit>
     <unit id="7606672167560356784">
       <notes>
-        <note category="location">src/app/sections/contact/contact.component.html:75</note>
+        <note category="location">src/app/sections/contact/contact.component.html:99</note>
       </notes>
       <segment>
         <source>Sending…</source>
@@ -254,7 +261,7 @@
     </unit>
     <unit id="2129166387610051266">
       <notes>
-        <note category="location">src/app/sections/contact/contact.component.html:78</note>
+        <note category="location">src/app/sections/contact/contact.component.html:102</note>
       </notes>
       <segment>
         <source>Message sent ✓</source>
@@ -262,7 +269,7 @@
     </unit>
     <unit id="3950891945107571369">
       <notes>
-        <note category="location">src/app/sections/contact/contact.component.html:81</note>
+        <note category="location">src/app/sections/contact/contact.component.html:105</note>
       </notes>
       <segment>
         <source>Send message →</source>
@@ -270,7 +277,7 @@
     </unit>
     <unit id="933880918838085458">
       <notes>
-        <note category="location">src/app/sections/contact/contact.component.html:88,89</note>
+        <note category="location">src/app/sections/contact/contact.component.html:112,113</note>
       </notes>
       <segment>
         <source> Thanks — I&apos;ll be in touch within a couple of days. </source>
@@ -278,7 +285,7 @@
     </unit>
     <unit id="2429758494256154971">
       <notes>
-        <note category="location">src/app/sections/contact/contact.component.html:93,95</note>
+        <note category="location">src/app/sections/contact/contact.component.html:117,119</note>
       </notes>
       <segment>
         <source> Something went wrong. Please email me directly at <ph id="0" equiv="INTERPOLATION" disp="{{ email }}"/>. </source>
@@ -286,39 +293,39 @@
     </unit>
     <unit id="7348981762872733060">
       <notes>
-        <note category="location">src/app/sections/hero/hero.component.html:8,10</note>
+        <note category="location">src/app/sections/hero/hero.component.html:10,12</note>
       </notes>
       <segment>
         <source>Available for new work</source>
       </segment>
     </unit>
-    <unit id="5777995108992659212">
+    <unit id="1726526505167085114">
       <notes>
-        <note category="location">src/app/sections/hero/hero.component.html:12,13</note>
+        <note category="location">src/app/sections/hero/hero.component.html:18,19</note>
       </notes>
       <segment>
-        <source>Full-stack engineer.</source>
+        <source> Full-stack engineer. </source>
       </segment>
     </unit>
     <unit id="1569980241865430694">
       <notes>
-        <note category="location">src/app/sections/hero/hero.component.html:14,15</note>
+        <note category="location">src/app/sections/hero/hero.component.html:21,22</note>
       </notes>
       <segment>
         <source> Angular front-ends, Spring back-ends. </source>
       </segment>
     </unit>
-    <unit id="3417218090450870547">
+    <unit id="2828692478240159969">
       <notes>
-        <note category="location">src/app/sections/hero/hero.component.html:25,26</note>
+        <note category="location">src/app/sections/hero/hero.component.html:41,42</note>
       </notes>
       <segment>
-        <source>3+ years contracting · 12+ years leadership</source>
+        <source> 3+ years contracting · 12+ years leadership </source>
       </segment>
     </unit>
     <unit id="3023277499776646518">
       <notes>
-        <note category="location">src/app/sections/hero/hero.component.html:29,30</note>
+        <note category="location">src/app/sections/hero/hero.component.html:46,47</note>
       </notes>
       <segment>
         <source>See selected work</source>
@@ -326,7 +333,7 @@
     </unit>
     <unit id="7979292461965361547">
       <notes>
-        <note category="location">src/app/sections/hero/hero.component.html:30,31</note>
+        <note category="location">src/app/sections/hero/hero.component.html:47,48</note>
       </notes>
       <segment>
         <source>Get in touch →</source>
@@ -334,7 +341,7 @@
     </unit>
     <unit id="410395238023660102">
       <notes>
-        <note category="location">src/app/sections/hero/hero.component.html:35,36</note>
+        <note category="location">src/app/sections/hero/hero.component.html:57,58</note>
       </notes>
       <segment>
         <source>Scroll</source>
@@ -342,7 +349,7 @@
     </unit>
     <unit id="5000477698588213239">
       <notes>
-        <note category="location">src/app/sections/leadership/leadership.component.ts:11,12</note>
+        <note category="location">src/app/sections/leadership/leadership.component.ts:17,18</note>
       </notes>
       <segment>
         <source>Before software</source>
@@ -350,7 +357,7 @@
     </unit>
     <unit id="6437895273920911276">
       <notes>
-        <note category="location">src/app/sections/leadership/leadership.component.ts:12,13</note>
+        <note category="location">src/app/sections/leadership/leadership.component.ts:18,19</note>
       </notes>
       <segment>
         <source>A decade of leading public-sector teams.</source>
@@ -358,66 +365,34 @@
     </unit>
     <unit id="5004385675192622529">
       <notes>
-        <note category="location">src/app/sections/leadership/leadership.component.ts:14,19</note>
+        <note category="location">src/app/sections/leadership/leadership.component.ts:20,27</note>
       </notes>
       <segment>
-        <source> From 2010 to 2022, I served at the <pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">Georgia Revenue Service</pc>, holding several roles culminating in <pc id="1" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">Deputy Head of Division</pc> for eight years. I led teams of up to <pc id="2" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">60 people</pc> across multi-stakeholder projects with public and private partners — strategic planning, delivery oversight, and team growth. </source>
+        <source> From 2010 to 2022, I served at the <pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong class=&quot;text-foreground font-semibold&quot;&gt;" dispEnd="&lt;/strong&gt;">Georgia Revenue Service</pc>, holding several roles culminating in <pc id="1" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong class=&quot;text-foreground font-semibold&quot;&gt;" dispEnd="&lt;/strong&gt;">Deputy Head of Division</pc> for eight years. I led teams of up to <pc id="2" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong class=&quot;text-foreground font-semibold&quot;&gt;" dispEnd="&lt;/strong&gt;">60 people</pc> across multi-stakeholder projects with public and private partners — strategic planning, delivery oversight, and team growth. </source>
       </segment>
     </unit>
     <unit id="5802282763563878971">
       <notes>
-        <note category="location">src/app/sections/leadership/leadership.component.ts:21,23</note>
+        <note category="location">src/app/sections/leadership/leadership.component.ts:30,32</note>
       </notes>
       <segment>
         <source> That background still shapes the way I work as an engineer: I scope before I code, write documentation that survives a hand-off, and keep the people who depend on the system in the picture. </source>
       </segment>
     </unit>
-    <unit id="7264504163563628331">
+    <unit id="7708270344948043036">
       <notes>
-        <note category="location">src/app/sections/leadership/leadership.component.ts:31,32</note>
+        <note category="location">src/app/sections/leadership/leadership.component.ts:46,47</note>
       </notes>
       <segment>
-        <source>Strategic planning</source>
+        <source> <ph id="0" equiv="INTERPOLATION" disp="{{ pillar.title }}"/> </source>
       </segment>
     </unit>
-    <unit id="5780172993512316366">
+    <unit id="187187500641108332">
       <notes>
-        <note category="location">src/app/sections/leadership/leadership.component.ts:33,34</note>
+        <note category="location">src/app/sections/leadership/leadership.component.ts:48,49</note>
       </notes>
       <segment>
-        <source> Translating broad objectives into concrete, measurable initiatives the team can execute on. </source>
-      </segment>
-    </unit>
-    <unit id="2956084281051339086">
-      <notes>
-        <note category="location">src/app/sections/leadership/leadership.component.ts:41,42</note>
-      </notes>
-      <segment>
-        <source>Cross-functional delivery</source>
-      </segment>
-    </unit>
-    <unit id="6147937928129108351">
-      <notes>
-        <note category="location">src/app/sections/leadership/leadership.component.ts:43,44</note>
-      </notes>
-      <segment>
-        <source> Coordinating projects with up to 60 contributors across public and private stakeholders. </source>
-      </segment>
-    </unit>
-    <unit id="4512514697802457459">
-      <notes>
-        <note category="location">src/app/sections/leadership/leadership.component.ts:51,52</note>
-      </notes>
-      <segment>
-        <source>Team growth</source>
-      </segment>
-    </unit>
-    <unit id="8186267356452210166">
-      <notes>
-        <note category="location">src/app/sections/leadership/leadership.component.ts:53</note>
-      </notes>
-      <segment>
-        <source> Mentoring, hiring, and shaping a culture where people grow into the next role. </source>
+        <source><ph id="0" equiv="INTERPOLATION" disp="{{ pillar.body }}"/></source>
       </segment>
     </unit>
     <unit id="3940901163173520291">
@@ -468,36 +443,41 @@
         <source> One headline engagement, plus open-source and side-projects. Click through for details, or jump to the repo. </source>
       </segment>
     </unit>
-    <unit id="4677441592949103672">
+    <unit id="2327634576277227537">
       <notes>
-        <note category="location">src/app/sections/work/work.component.html:13,14</note>
+        <note category="location">src/app/sections/work/work.component.html:14,15</note>
       </notes>
       <segment>
-        <source>Featured case study</source>
+        <source> Featured case study </source>
       </segment>
     </unit>
-    <unit id="1531684254784079014">
+    <unit id="7153096993373629586">
       <notes>
-        <note category="location">src/app/sections/work/work.component.html:24,25</note>
+        <note category="location">src/app/sections/work/work.component.html:37,38</note>
       </notes>
       <segment>
-        <source>Read the case study →</source>
+        <source> Read the case study → </source>
       </segment>
     </unit>
     <unit id="5388159538648334108">
       <notes>
-        <note category="location">src/app/sections/work/work.component.html:27,28</note>
+        <note category="location">src/app/sections/work/work.component.html:41,42</note>
       </notes>
       <segment>
         <source>From GitHub</source>
       </segment>
     </unit>
-    <unit id="4510854894782944646">
+    <unit id="1540224745095153587">
       <notes>
-        <note category="location">src/app/sections/work/work.component.html:29,33</note>
+        <note category="location">src/app/sections/work/work.component.html:43,55</note>
       </notes>
       <segment>
-        <source> A handful of repos worth a look. The full list lives on <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a href=&quot;https://github.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;" dispEnd="&lt;/a&gt;">GitHub</pc>. </source>
+        <source> A handful of repos worth a look. The full list lives on <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a
+      href=&quot;https://github.com/&quot;
+      target=&quot;_blank&quot;
+      rel=&quot;noopener noreferrer&quot;
+      class=&quot;text-primary border-b border-primary-soft&quot;
+    &gt;" dispEnd="&lt;/a&gt;"> GitHub </pc> . </source>
       </segment>
     </unit>
   </file>

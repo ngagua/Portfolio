@@ -8,7 +8,12 @@
   "projects": {
     "Portfolio": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "inlineStyleLanguage": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -36,8 +41,9 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
+            "inlineStyleLanguage": "scss",
             "server": "src/main.server.ts",
             "outputMode": "server",
             "ssr": {

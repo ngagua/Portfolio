@@ -6,21 +6,21 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
   selector: 'app-skills',
   imports: [RevealOnScrollDirective],
   template: `
-    <section class="container-x section" id="skills">
-      <header class="skills-head" appReveal>
+    <section id="skills" class="container-x section">
+      <header class="max-w-[60ch]" appReveal>
         <p class="eyebrow" i18n>Toolkit</p>
-        <h2 class="section-title" i18n>The stack I reach for.</h2>
+        <h2 class="section-title mt-4" i18n>The stack I reach for.</h2>
         <p class="section-lead" i18n>
           Picked over years on real projects — front-end frameworks, back-end services, CMS, and the
           tooling that ties them together.
         </p>
       </header>
 
-      <div class="skill-grid">
+      <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         @for (group of groups; track group.label; let i = $index) {
           <article class="skill-card" appReveal [appRevealDelay]="i * 0.08">
             <h3 class="skill-label">{{ group.label }}</h3>
-            <ul class="skill-chips">
+            <ul class="flex flex-wrap gap-2 list-none m-0 p-0">
               @for (item of group.items; track item) {
                 <li class="chip">{{ item }}</li>
               }
@@ -30,7 +30,7 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
       </div>
     </section>
   `,
-  styleUrl: './skills.component.css',
+  styleUrl: './skills.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillsComponent {

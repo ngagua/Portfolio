@@ -11,7 +11,7 @@ import { profile } from '../../shared/data/profile';
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.component.html',
-  styleUrl: './hero.component.css',
+  styleUrl: './hero.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'hero-section',

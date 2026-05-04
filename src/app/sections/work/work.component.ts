@@ -8,7 +8,7 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
   selector: 'app-work',
   imports: [RouterLink, RevealOnScrollDirective],
   templateUrl: './work.component.html',
-  styleUrl: './work.component.css',
+  styleUrl: './work.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WorkComponent {

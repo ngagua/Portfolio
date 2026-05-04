@@ -1,6 +1,6 @@
-<section class="container-x section" id="contact">
-  <div class="contact-grid">
-    <div class="contact-intro" appReveal>
+<section id="contact" class="container-x section">
+  <div class="grid items-start gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-16">
+    <div class="flex flex-col gap-5" appReveal>
       <p class="eyebrow" i18n>Contact</p>
       <h2 class="section-title" i18n>Have a project in mind? Let's talk.</h2>
       <p class="section-lead" i18n>
@@ -8,23 +8,41 @@
         Drop a note and I'll respond within a couple of days.
       </p>
 
-      <ul class="contact-direct">
-        <li>
-          <span class="contact-label" i18n>Email</span>
-          <a [href]="'mailto:' + email">{{ email }}</a>
+      <ul class="list-none p-0 mt-6 flex flex-col gap-4">
+        <li class="flex flex-col gap-1">
+          <span class="text-xs uppercase tracking-[0.18em] text-muted" i18n>Email</span>
+          <a
+            [href]="'mailto:' + email"
+            class="text-base text-foreground border-b border-border pb-1 transition-colors hover:border-primary break-words"
+          >
+            {{ email }}
+          </a>
         </li>
         @for (link of socials; track link.label) {
           @if (link.label !== 'Email') {
-            <li>
-              <span class="contact-label">{{ link.label }}</span>
-              <a [href]="link.href" target="_blank" rel="noopener noreferrer">{{ link.href }}</a>
+            <li class="flex flex-col gap-1">
+              <span class="text-xs uppercase tracking-[0.18em] text-muted">{{ link.label }}</span>
+              <a
+                [href]="link.href"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-base text-foreground border-b border-border pb-1 transition-colors hover:border-primary break-words"
+              >
+                {{ link.href }}
+              </a>
             </li>
           }
         }
       </ul>
     </div>
 
-    <form class="contact-form card" [formGroup]="form" (ngSubmit)="submit()" novalidate appReveal>
+    <form
+      class="card flex flex-col gap-5 p-6 sm:p-8 lg:p-9"
+      [formGroup]="form"
+      (ngSubmit)="submit()"
+      novalidate
+      appReveal
+    >
       <div class="field">
         <label for="contact-name" i18n>Your name</label>
         <input
@@ -36,7 +54,7 @@
           [attr.aria-invalid]="form.controls.name.invalid && form.controls.name.touched"
         />
         @if (form.controls.name.touched && form.controls.name.invalid) {
-          <small class="error" i18n>Please tell me your name.</small>
+          <small class="text-xs text-danger" i18n>Please tell me your name.</small>
         }
       </div>
 
@@ -51,7 +69,7 @@
           [attr.aria-invalid]="form.controls.email.invalid && form.controls.email.touched"
         />
         @if (form.controls.email.touched && form.controls.email.invalid) {
-          <small class="error" i18n>A valid email helps me reply.</small>
+          <small class="text-xs text-danger" i18n>A valid email helps me reply.</small>
         }
       </div>
 
@@ -65,11 +83,17 @@
           [attr.aria-invalid]="form.controls.message.invalid && form.controls.message.touched"
         ></textarea>
         @if (form.controls.message.touched && form.controls.message.invalid) {
-          <small class="error" i18n>Tell me a bit more — at least 10 characters.</small>
+          <small class="text-xs text-danger" i18n>
+            Tell me a bit more — at least 10 characters.
+          </small>
         }
       </div>
 
-      <button type="submit" class="submit" [disabled]="status() === 'submitting'">
+      <button
+        type="submit"
+        class="btn btn-primary self-start mt-2"
+        [disabled]="status() === 'submitting'"
+      >
         @switch (status()) {
           @case ('submitting') {
             <ng-container i18n>Sending…</ng-container>
@@ -84,12 +108,12 @@
       </button>
 
       @if (status() === 'success') {
-        <p class="status success" role="status" i18n>
+        <p class="text-sm text-success m-0" role="status" i18n>
           Thanks — I'll be in touch within a couple of days.
         </p>
       }
       @if (status() === 'error') {
-        <p class="status error" role="alert" i18n>
+        <p class="text-sm text-danger m-0" role="alert" i18n>
           Something went wrong. Please email me directly at {{ email }}.
         </p>
       }

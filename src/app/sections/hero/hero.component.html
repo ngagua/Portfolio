@@ -4,34 +4,56 @@
   <span class="grid"></span>
 </div>
 
-<div class="container-x hero-content">
+<div
+  class="container-x flex flex-col justify-center gap-7 min-h-[calc(100dvh-4rem)] py-12 sm:py-16 md:py-24"
+>
   <p class="eyebrow" data-hero="eyebrow" i18n>Available for new work</p>
 
-  <h1 class="hero-title" data-hero="title">
-    <span class="hero-line" data-hero="line">{{ name }}.</span>
-    <span class="hero-line accent" data-hero="line" i18n>Full-stack engineer.</span>
-    <span class="hero-line muted" data-hero="line" i18n>
+  <h1
+    class="font-display font-semibold text-foreground flex flex-col gap-1 leading-none tracking-tighter text-[clamp(2.5rem,7vw,5.5rem)]"
+    data-hero="title"
+  >
+    <span class="inline-block" data-hero="line">{{ name }}.</span>
+    <span class="inline-block text-primary-strong" data-hero="line" i18n>
+      Full-stack engineer.
+    </span>
+    <span class="inline-block text-muted font-medium" data-hero="line" i18n>
       Angular front-ends, Spring back-ends.
     </span>
   </h1>
 
-  <p class="hero-tag" data-hero="tag">{{ tagline }}</p>
+  <p
+    class="max-w-[60ch] text-muted text-[clamp(1.05rem,1.4vw,1.2rem)] leading-relaxed"
+    data-hero="tag"
+  >
+    {{ tagline }}
+  </p>
 
-  <div class="hero-meta" data-hero="meta">
-    <span class="meta-item">
-      <span class="meta-dot" aria-hidden="true"></span>
+  <div
+    class="flex flex-wrap gap-x-8 gap-y-5 text-sm text-muted uppercase tracking-wider"
+    data-hero="meta"
+  >
+    <span class="inline-flex items-center gap-2">
+      <span class="meta-dot w-2 h-2 rounded-full" aria-hidden="true"></span>
       {{ location }}
     </span>
-    <span class="meta-item" i18n>3+ years contracting · 12+ years leadership</span>
+    <span class="inline-flex items-center gap-2" i18n>
+      3+ years contracting · 12+ years leadership
+    </span>
   </div>
 
-  <div class="hero-actions" data-hero="actions">
+  <div class="flex flex-wrap gap-3 mt-2" data-hero="actions">
     <a class="btn btn-primary" href="#work" i18n>See selected work</a>
     <a class="btn btn-ghost" href="#contact" i18n>Get in touch →</a>
   </div>
 
-  <a class="scroll-cue" href="#about" aria-label="Scroll to about" data-hero="cue">
-    <span class="cue-line" aria-hidden="true"></span>
-    <span class="cue-text" i18n>Scroll</span>
+  <a
+    class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5 text-xs uppercase tracking-[0.25em] text-muted"
+    href="#about"
+    aria-label="Scroll to about"
+    data-hero="cue"
+  >
+    <span class="cue-line block w-px h-10" aria-hidden="true"></span>
+    <span i18n>Scroll</span>
   </a>
 </div>

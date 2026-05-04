@@ -1,43 +1,74 @@
 <a class="skip-link" href="#main" i18n>Skip to content</a>
 
-<div class="container-x header-inner">
-  <a routerLink="/" class="logo" aria-label="Home" (click)="closeMenu()">
-    <span class="logo-mark">{{ monogram }}</span>
-    <span class="logo-dot" aria-hidden="true"></span>
+<div class="container-x flex items-center justify-between gap-6 py-3.5">
+  <a
+    routerLink="/"
+    aria-label="Home"
+    (click)="closeMenu()"
+    class="inline-flex items-center gap-1.5 font-display font-bold text-base tracking-tight text-foreground"
+  >
+    <span
+      class="inline-grid place-items-center w-8 h-8 rounded-lg bg-primary-soft text-primary-strong text-sm"
+    >
+      {{ monogram }}
+    </span>
+    <span class="w-1.5 h-1.5 rounded-full bg-primary" aria-hidden="true"></span>
   </a>
 
-  <nav class="nav-desktop" aria-label="Primary">
+  <nav class="hidden md:inline-flex gap-8" aria-label="Primary">
     @for (link of links; track link.href) {
-      <a class="nav-link" [href]="link.href" (click)="closeMenu()">{{ link.label }}</a>
+      <a
+        class="text-sm text-muted hover:text-foreground transition-colors"
+        [href]="link.href"
+        (click)="closeMenu()"
+      >
+        {{ link.label }}
+      </a>
     }
   </nav>
 
-  <div class="header-actions">
-    <div class="lang-toggle" role="group" aria-label="Language">
+  <div class="flex items-center gap-3">
+    <div
+      class="inline-flex items-center gap-1.5 font-display font-medium text-xs uppercase tracking-[0.12em]"
+      role="group"
+      aria-label="Language"
+    >
       <button
         type="button"
-        class="lang-btn"
-        [class.active]="currentLang === 'en'"
+        class="px-1.5 py-0.5 rounded transition-colors"
+        [class.text-primary]="currentLang === 'en'"
+        [class.text-muted]="currentLang !== 'en'"
+        [class.hover:text-foreground]="currentLang !== 'en'"
         [attr.aria-pressed]="currentLang === 'en'"
         (click)="switchLang('en')"
       >
         EN
       </button>
-      <span class="lang-divider" aria-hidden="true">/</span>
+      <span class="text-border" aria-hidden="true">/</span>
       <button
         type="button"
-        class="lang-btn"
-        [class.active]="currentLang === 'ka'"
+        class="px-1.5 py-0.5 rounded transition-colors"
+        [class.text-primary]="currentLang === 'ka'"
+        [class.text-muted]="currentLang !== 'ka'"
+        [class.hover:text-foreground]="currentLang !== 'ka'"
         [attr.aria-pressed]="currentLang === 'ka'"
         (click)="switchLang('ka')"
       >
         KA
       </button>
     </div>
-    <a class="cta" href="#contact" i18n>Get in touch</a>
+
+    <a
+      class="hidden md:inline-flex px-4 py-2 rounded-full border border-border text-sm font-medium text-foreground transition-all duration-200 hover:border-primary hover:bg-primary-soft"
+      href="#contact"
+      i18n
+    >
+      Get in touch
+    </a>
+
     <button
       type="button"
-      class="menu-toggle"
+      class="md:hidden inline-flex flex-col items-center justify-center gap-1.5 w-10 h-10 rounded-lg border border-border"
       [attr.aria-expanded]="menuOpen()"
       aria-controls="mobile-nav"
       aria-label="Toggle navigation"
@@ -50,10 +81,27 @@
 </div>
 
 @if (menuOpen()) {
-  <nav id="mobile-nav" class="nav-mobile" aria-label="Mobile">
+  <nav
+    id="mobile-nav"
+    class="flex flex-col gap-1 px-5 sm:px-7 md:hidden pt-4 pb-6 bg-background border-b border-border"
+    aria-label="Mobile"
+  >
     @for (link of links; track link.href) {
-      <a class="nav-link" [href]="link.href" (click)="closeMenu()">{{ link.label }}</a>
+      <a
+        class="text-lg text-foreground py-2.5 hover:text-primary transition-colors"
+        [href]="link.href"
+        (click)="closeMenu()"
+      >
+        {{ link.label }}
+      </a>
     }
-    <a class="cta" href="#contact" (click)="closeMenu()" i18n>Get in touch</a>
+    <a
+      class="inline-flex self-start mt-2 px-4 py-2 rounded-full border border-border text-sm font-medium text-foreground hover:border-primary hover:bg-primary-soft transition-all"
+      href="#contact"
+      (click)="closeMenu()"
+      i18n
+    >
+      Get in touch
+    </a>
   </nav>
 }

@@ -4,7 +4,7 @@ import { profile, socials } from '../../shared/data/profile';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css',
+  styleUrl: './footer.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'app-footer',

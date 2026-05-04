@@ -1,50 +1,77 @@
-<article class="case">
-  <header class="container-x case-hero">
-    <a class="back-link" routerLink="/" i18n>← Back to home</a>
+<article class="block pt-16 pb-24">
+  <header class="container-x flex flex-col gap-4 pb-16 border-b border-border">
+    <a
+      class="self-start text-sm text-muted mb-4 transition-colors hover:text-primary"
+      routerLink="/"
+      i18n
+    >
+      ← Back to home
+    </a>
     <p class="eyebrow" i18n>Case study</p>
-    <h1 class="case-title">{{ study.title }}</h1>
-    <p class="case-client">{{ study.client }} · {{ study.period }}</p>
-    <p class="case-summary">{{ study.summary }}</p>
+    <h1
+      class="font-display font-semibold text-foreground max-w-[24ch] leading-[1.05] text-[clamp(2rem,5vw,3.5rem)]"
+    >
+      {{ study.title }}
+    </h1>
+    <p class="text-muted text-base">{{ study.client }} · {{ study.period }}</p>
+    <p
+      class="text-muted-foreground max-w-[70ch] leading-relaxed text-[clamp(1.05rem,1.4vw,1.25rem)]"
+    >
+      {{ study.summary }}
+    </p>
   </header>
 
-  <section class="container-x case-meta">
+  <section
+    class="container-x grid gap-8 py-12 border-b border-border md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] md:gap-12"
+  >
     <div>
-      <h3 i18n>Role</h3>
-      <p>{{ study.role }}</p>
+      <h3 class="case-meta-label" i18n>Role</h3>
+      <p class="text-foreground">{{ study.role }}</p>
     </div>
     <div>
-      <h3 i18n>Stack</h3>
-      <ul class="stack-list">
+      <h3 class="case-meta-label" i18n>Stack</h3>
+      <ul class="flex flex-wrap gap-2 list-none p-0 m-0">
         @for (tech of study.stack; track tech) {
-          <li>{{ tech }}</li>
+          <li class="chip">{{ tech }}</li>
         }
       </ul>
     </div>
   </section>
 
-  <section class="container-x case-block">
-    <h2 i18n>The problem</h2>
-    <p>{{ study.problem }}</p>
+  <section class="container-x flex flex-col gap-6 py-12 border-b border-border">
+    <h2 class="font-display font-semibold text-foreground text-[clamp(1.5rem,3vw,2.25rem)]" i18n>
+      The problem
+    </h2>
+    <p
+      class="text-muted-foreground max-w-[70ch] leading-relaxed text-[clamp(1rem,1.3vw,1.1rem)]"
+    >
+      {{ study.problem }}
+    </p>
   </section>
 
-  <section class="container-x case-block">
-    <h2 i18n>The approach</h2>
-    <ul class="approach-list">
+  <section class="container-x flex flex-col gap-6 py-12 border-b border-border">
+    <h2 class="font-display font-semibold text-foreground text-[clamp(1.5rem,3vw,2.25rem)]" i18n>
+      The approach
+    </h2>
+    <ul class="flex flex-col gap-6 list-none p-0 m-0">
       @for (step of study.approach; track $index) {
-        <li>
+        <li class="approach-step">
           <span class="step-num">{{ $index + 1 }}</span>
-          <p>{{ step }}</p>
+          <p class="text-muted-foreground leading-relaxed">{{ step }}</p>
         </li>
       }
     </ul>
   </section>
 
-  <section class="container-x case-block">
-    <h2 i18n>Outcomes</h2>
-    <ul class="outcomes">
+  <section class="container-x flex flex-col gap-6 py-12">
+    <h2 class="font-display font-semibold text-foreground text-[clamp(1.5rem,3vw,2.25rem)]" i18n>
+      Outcomes
+    </h2>
+    <ul class="flex flex-col gap-3.5 list-none p-0 m-0">
       @for (outcome of study.outcomes; track $index) {
-        <li>
+        <li class="flex items-start gap-3.5 text-base text-muted-foreground">
           <svg
+            class="text-primary shrink-0 mt-1"
             width="20"
             height="20"
             viewBox="0 0 20 20"
@@ -63,8 +90,14 @@
     </ul>
   </section>
 
-  <section class="container-x case-cta">
-    <p i18n>Want to see more?</p>
-    <a class="cta-link" routerLink="/" i18n>Back to selected work →</a>
+  <section class="container-x flex flex-col items-start gap-3 pt-12">
+    <p class="text-base text-muted" i18n>Want to see more?</p>
+    <a
+      class="font-medium text-primary-strong border-b border-primary-soft pb-1 transition-colors hover:text-foreground hover:border-primary"
+      routerLink="/"
+      i18n
+    >
+      Back to selected work →
+    </a>
   </section>
 </article>

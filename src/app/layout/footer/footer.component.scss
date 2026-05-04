@@ -1,0 +1,7 @@
+@reference '../../../styles.scss';
+
+:host {
+  @apply block bg-background border-t border-border;
+  margin-top: 6rem;
+  padding-block: 3rem;
+}

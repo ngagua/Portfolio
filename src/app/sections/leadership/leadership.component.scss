@@ -1,0 +1,14 @@
+@reference '../../../styles.scss';
+
+.leadership-list {
+  @apply list-none p-0 m-0 flex flex-col;
+
+  > li {
+    @apply grid items-start gap-5 py-6 border-b border-border;
+    grid-template-columns: 4rem 1fr;
+
+    &:last-child {
+      @apply border-b-0;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@reference '../../../styles.scss';
+
+.case-meta-label {
+  @apply font-display font-medium uppercase text-primary text-xs mb-3;
+  letter-spacing: 0.18em;
+}
+
+.approach-step {
+  @apply grid items-start gap-5 p-6 border border-border bg-card;
+  grid-template-columns: 3rem 1fr;
+  border-radius: var(--radius-card);
+}
+
+.step-num {
+  @apply inline-grid place-items-center w-10 h-10 bg-primary-soft text-primary-strong font-display font-semibold;
+  border-radius: 0.7rem;
+}
