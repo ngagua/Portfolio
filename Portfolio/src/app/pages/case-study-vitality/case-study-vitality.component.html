@@ -1,0 +1,70 @@
+<article class="case">
+  <header class="container-x case-hero">
+    <a class="back-link" routerLink="/" i18n>← Back to home</a>
+    <p class="eyebrow" i18n>Case study</p>
+    <h1 class="case-title">{{ study.title }}</h1>
+    <p class="case-client">{{ study.client }} · {{ study.period }}</p>
+    <p class="case-summary">{{ study.summary }}</p>
+  </header>
+
+  <section class="container-x case-meta">
+    <div>
+      <h3 i18n>Role</h3>
+      <p>{{ study.role }}</p>
+    </div>
+    <div>
+      <h3 i18n>Stack</h3>
+      <ul class="stack-list">
+        @for (tech of study.stack; track tech) {
+          <li>{{ tech }}</li>
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="container-x case-block">
+    <h2 i18n>The problem</h2>
+    <p>{{ study.problem }}</p>
+  </section>
+
+  <section class="container-x case-block">
+    <h2 i18n>The approach</h2>
+    <ul class="approach-list">
+      @for (step of study.approach; track $index) {
+        <li>
+          <span class="step-num">{{ $index + 1 }}</span>
+          <p>{{ step }}</p>
+        </li>
+      }
+    </ul>
+  </section>
+
+  <section class="container-x case-block">
+    <h2 i18n>Outcomes</h2>
+    <ul class="outcomes">
+      @for (outcome of study.outcomes; track $index) {
+        <li>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M4 10l4 4 8-8" />
+          </svg>
+          <span>{{ outcome }}</span>
+        </li>
+      }
+    </ul>
+  </section>
+
+  <section class="container-x case-cta">
+    <p i18n>Want to see more?</p>
+    <a class="cta-link" routerLink="/" i18n>Back to selected work →</a>
+  </section>
+</article>

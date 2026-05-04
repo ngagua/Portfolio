@@ -1,0 +1,59 @@
+<a class="skip-link" href="#main" i18n>Skip to content</a>
+
+<div class="container-x header-inner">
+  <a routerLink="/" class="logo" aria-label="Home" (click)="closeMenu()">
+    <span class="logo-mark">{{ monogram }}</span>
+    <span class="logo-dot" aria-hidden="true"></span>
+  </a>
+
+  <nav class="nav-desktop" aria-label="Primary">
+    @for (link of links; track link.href) {
+      <a class="nav-link" [href]="link.href" (click)="closeMenu()">{{ link.label }}</a>
+    }
+  </nav>
+
+  <div class="header-actions">
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button
+        type="button"
+        class="lang-btn"
+        [class.active]="currentLang === 'en'"
+        [attr.aria-pressed]="currentLang === 'en'"
+        (click)="switchLang('en')"
+      >
+        EN
+      </button>
+      <span class="lang-divider" aria-hidden="true">/</span>
+      <button
+        type="button"
+        class="lang-btn"
+        [class.active]="currentLang === 'ka'"
+        [attr.aria-pressed]="currentLang === 'ka'"
+        (click)="switchLang('ka')"
+      >
+        KA
+      </button>
+    </div>
+    <a class="cta" href="#contact" i18n>Get in touch</a>
+    <button
+      type="button"
+      class="menu-toggle"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="mobile-nav"
+      aria-label="Toggle navigation"
+      (click)="toggleMenu()"
+    >
+      <span class="bar" [class.open]="menuOpen()"></span>
+      <span class="bar" [class.open]="menuOpen()"></span>
+    </button>
+  </div>
+</div>
+
+@if (menuOpen()) {
+  <nav id="mobile-nav" class="nav-mobile" aria-label="Mobile">
+    @for (link of links; track link.href) {
+      <a class="nav-link" [href]="link.href" (click)="closeMenu()">{{ link.label }}</a>
+    }
+    <a class="cta" href="#contact" (click)="closeMenu()" i18n>Get in touch</a>
+  </nav>
+}

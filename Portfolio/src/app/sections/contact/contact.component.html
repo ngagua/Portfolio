@@ -1,0 +1,98 @@
+<section class="container-x section" id="contact">
+  <div class="contact-grid">
+    <div class="contact-intro" appReveal>
+      <p class="eyebrow" i18n>Contact</p>
+      <h2 class="section-title" i18n>Have a project in mind? Let's talk.</h2>
+      <p class="section-lead" i18n>
+        I'm open to full-time and contract work — full-stack, front-end-heavy, or back-end-only.
+        Drop a note and I'll respond within a couple of days.
+      </p>
+
+      <ul class="contact-direct">
+        <li>
+          <span class="contact-label" i18n>Email</span>
+          <a [href]="'mailto:' + email">{{ email }}</a>
+        </li>
+        @for (link of socials; track link.label) {
+          @if (link.label !== 'Email') {
+            <li>
+              <span class="contact-label">{{ link.label }}</span>
+              <a [href]="link.href" target="_blank" rel="noopener noreferrer">{{ link.href }}</a>
+            </li>
+          }
+        }
+      </ul>
+    </div>
+
+    <form class="contact-form card" [formGroup]="form" (ngSubmit)="submit()" novalidate appReveal>
+      <div class="field">
+        <label for="contact-name" i18n>Your name</label>
+        <input
+          id="contact-name"
+          type="text"
+          formControlName="name"
+          autocomplete="name"
+          required
+          [attr.aria-invalid]="form.controls.name.invalid && form.controls.name.touched"
+        />
+        @if (form.controls.name.touched && form.controls.name.invalid) {
+          <small class="error" i18n>Please tell me your name.</small>
+        }
+      </div>
+
+      <div class="field">
+        <label for="contact-email" i18n>Email</label>
+        <input
+          id="contact-email"
+          type="email"
+          formControlName="email"
+          autocomplete="email"
+          required
+          [attr.aria-invalid]="form.controls.email.invalid && form.controls.email.touched"
+        />
+        @if (form.controls.email.touched && form.controls.email.invalid) {
+          <small class="error" i18n>A valid email helps me reply.</small>
+        }
+      </div>
+
+      <div class="field">
+        <label for="contact-message" i18n>Message</label>
+        <textarea
+          id="contact-message"
+          rows="5"
+          formControlName="message"
+          required
+          [attr.aria-invalid]="form.controls.message.invalid && form.controls.message.touched"
+        ></textarea>
+        @if (form.controls.message.touched && form.controls.message.invalid) {
+          <small class="error" i18n>Tell me a bit more — at least 10 characters.</small>
+        }
+      </div>
+
+      <button type="submit" class="submit" [disabled]="status() === 'submitting'">
+        @switch (status()) {
+          @case ('submitting') {
+            <ng-container i18n>Sending…</ng-container>
+          }
+          @case ('success') {
+            <ng-container i18n>Message sent ✓</ng-container>
+          }
+          @default {
+            <ng-container i18n>Send message →</ng-container>
+          }
+        }
+      </button>
+
+      @if (status() === 'success') {
+        <p class="status success" role="status" i18n>
+          Thanks — I'll be in touch within a couple of days.
+        </p>
+      }
+      @if (status() === 'error') {
+        <p class="status error" role="alert" i18n>
+          Something went wrong. Please email me directly at {{ email }}.
+        </p>
+      }
+    </form>
+  </div>
+</section>
