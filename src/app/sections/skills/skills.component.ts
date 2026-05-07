@@ -1,38 +1,127 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { skills } from '../../shared/data/profile';
+import {
+  afterNextRender,
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  ElementRef,
+  inject,
+} from '@angular/core';
+import {
+  certifications,
+  education,
+  languages,
+  practiceBadges,
+  skills,
+} from '../../shared/data/profile';
 import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
 
 @Component({
   selector: 'app-skills',
   imports: [RevealOnScrollDirective],
-  template: `
-    <section id="skills" class="container-x section">
-      <header class="max-w-[60ch]" appReveal>
-        <p class="eyebrow">Toolkit</p>
-        <h2 class="section-title mt-4">The stack I reach for.</h2>
-        <p class="section-lead">
-          Picked over years on real projects — front-end frameworks, back-end services, CMS, and the
-          tooling that ties them together.
-        </p>
-      </header>
-
-      <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        @for (group of groups; track group.label; let i = $index) {
-          <article class="skill-card" appReveal [appRevealDelay]="i * 0.08">
-            <h3 class="skill-label">{{ group.label }}</h3>
-            <ul class="flex flex-wrap gap-2 list-none m-0 p-0">
-              @for (item of group.items; track item) {
-                <li class="chip">{{ item }}</li>
-              }
-            </ul>
-          </article>
-        }
-      </div>
-    </section>
-  `,
+  templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillsComponent {
+  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
+  private readonly destroyRef = inject(DestroyRef);
+
   protected readonly groups = skills;
+  protected readonly badges = practiceBadges;
+  protected readonly languages = languages;
+  protected readonly education = education;
+  protected readonly certifications = certifications;
+  protected readonly dotsRange = [1, 2, 3, 4, 5];
+
+  constructor() {
+    afterNextRender(async () => {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const el = this.host.nativeElement;
+      const cards = el.querySelectorAll<HTMLElement>('.skill-card');
+      const cleanups: Array<() => void> = [];
+
+      if (!reduce) {
+        cards.forEach((card) => {
+          const onMove = (e: PointerEvent) => {
+            const rect = card.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width;
+            const y = (e.clientY - rect.top) / rect.height;
+            card.style.setProperty('--mx', `${x * 100}%`);
+            card.style.setProperty('--my', `${y * 100}%`);
+            card.style.setProperty('--rx', `${(0.5 - y) * 6}deg`);
+            card.style.setProperty('--ry', `${(x - 0.5) * 6}deg`);
+          };
+          const onLeave = () => {
+            card.style.setProperty('--rx', '0deg');
+            card.style.setProperty('--ry', '0deg');
+          };
+          card.addEventListener('pointermove', onMove);
+          card.addEventListener('pointerleave', onLeave);
+          cleanups.push(() => {
+            card.removeEventListener('pointermove', onMove);
+            card.removeEventListener('pointerleave', onLeave);
+          });
+        });
+
+        const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
+          import('gsap'),
+          import('gsap/ScrollTrigger'),
+        ]);
+        gsap.registerPlugin(ScrollTrigger);
+
+        const ctx = gsap.context(() => {
+          cards.forEach((card) => {
+            gsap.from(card.querySelectorAll('.dot'), {
+              scale: 0,
+              opacity: 0,
+              duration: 0.5,
+              ease: 'back.out(2)',
+              stagger: 0.04,
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 82%',
+                toggleActions: 'play none none none',
+              },
+            });
+
+            gsap.from(card.querySelectorAll('.skill-row'), {
+              opacity: 0,
+              x: -12,
+              duration: 0.5,
+              ease: 'power3.out',
+              stagger: 0.05,
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 82%',
+                toggleActions: 'play none none none',
+              },
+            });
+          });
+
+          const pillsRow = el.querySelector('.practice-row');
+          if (pillsRow) {
+            gsap.from(el.querySelectorAll('.practice-pill'), {
+              opacity: 0,
+              y: 14,
+              duration: 0.55,
+              ease: 'power3.out',
+              stagger: 0.05,
+              scrollTrigger: {
+                trigger: pillsRow,
+                start: 'top 88%',
+                toggleActions: 'play none none none',
+              },
+            });
+          }
+        }, el);
+
+        this.destroyRef.onDestroy(() => {
+          ctx.revert();
+          cleanups.forEach((c) => c());
+        });
+      } else {
+        this.destroyRef.onDestroy(() => cleanups.forEach((c) => c()));
+      }
+    });
+  }
 }

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { vitalityCase } from '../../shared/data/case-studies';
+import { caseStudies } from '../../shared/data/case-studies';
 import { projects } from '../../shared/data/projects';
 import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
 
@@ -12,6 +12,6 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WorkComponent {
-  protected readonly featured = vitalityCase;
+  protected readonly studies = caseStudies;
   protected readonly projects = projects;
 }

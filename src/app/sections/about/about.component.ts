@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { profile } from '../../shared/data/profile';
 import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
+import { CountUpDirective } from '../../shared/directives/count-up.directive';
 
 @Component({
   selector: 'app-about',
-  imports: [RevealOnScrollDirective],
+  imports: [RevealOnScrollDirective, CountUpDirective],
   template: `
     <section id="about" class="container-x section">
       <div class="grid items-start gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:gap-16">
@@ -28,20 +29,20 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
 
       <ul class="stats-grid" appReveal>
         <li>
-          <span class="stat-num">3+</span>
-          <span class="stat-label">Years contracting at Vitality Group</span>
+          <span class="stat-num" [appCountUp]="27" appCountUpSuffix="M+">27M+</span>
+          <span class="stat-label">Vitality members across 38 markets</span>
         </li>
         <li>
-          <span class="stat-num">12</span>
+          <span class="stat-num" [appCountUp]="1" appCountUpSuffix="M+">1M+</span>
+          <span class="stat-label">Patients enrolled in NextGen CARES</span>
+        </li>
+        <li>
+          <span class="stat-num" [appCountUp]="12">12</span>
           <span class="stat-label">Years leading public-sector teams</span>
         </li>
         <li>
-          <span class="stat-num">60</span>
+          <span class="stat-num" [appCountUp]="60">60</span>
           <span class="stat-label">People managed at peak</span>
-        </li>
-        <li>
-          <span class="stat-num">3</span>
-          <span class="stat-label">Languages spoken (EN · KA · RU)</span>
         </li>
       </ul>
     </section>

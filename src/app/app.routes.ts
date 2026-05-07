@@ -4,15 +4,13 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./pages/home/home.component').then((m) => m.HomeComponent),
-    title: 'Nikoloz Gagua — Full-stack Engineer',
+    title: 'Nikoloz Gagua — Senior-Level Software Developer',
   },
   {
-    path: 'work/vitality',
+    path: 'work/:slug',
     loadComponent: () =>
-      import('./pages/case-study-vitality/case-study-vitality.component').then(
-        (m) => m.CaseStudyVitalityComponent,
-      ),
-    title: 'Case study: Vitality Group — Nikoloz Gagua',
+      import('./pages/case-study/case-study.component').then((m) => m.CaseStudyComponent),
+    title: 'Case study — Nikoloz Gagua',
   },
   {
     path: '**',
