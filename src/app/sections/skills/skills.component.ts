@@ -71,47 +71,62 @@ export class SkillsComponent {
 
         const ctx = gsap.context(() => {
           cards.forEach((card) => {
-            gsap.from(card.querySelectorAll('.dot'), {
-              scale: 0,
-              opacity: 0,
-              duration: 0.5,
-              ease: 'back.out(2)',
-              stagger: 0.04,
-              scrollTrigger: {
-                trigger: card,
-                start: 'top 82%',
-                toggleActions: 'play none none none',
+            gsap.fromTo(
+              card.querySelectorAll('.dot'),
+              { scale: 0, opacity: 0 },
+              {
+                scale: 1,
+                opacity: 1,
+                duration: 0.5,
+                ease: 'back.out(2)',
+                stagger: 0.04,
+                clearProps: 'transform,scale,opacity',
+                scrollTrigger: {
+                  trigger: card,
+                  start: 'top 82%',
+                  toggleActions: 'play none none none',
+                },
               },
-            });
+            );
 
-            gsap.from(card.querySelectorAll('.skill-row'), {
-              opacity: 0,
-              x: -12,
-              duration: 0.5,
-              ease: 'power3.out',
-              stagger: 0.05,
-              scrollTrigger: {
-                trigger: card,
-                start: 'top 82%',
-                toggleActions: 'play none none none',
+            gsap.fromTo(
+              card.querySelectorAll('.skill-row'),
+              { opacity: 0, x: -12 },
+              {
+                opacity: 1,
+                x: 0,
+                duration: 0.5,
+                ease: 'power3.out',
+                stagger: 0.05,
+                clearProps: 'transform,opacity',
+                scrollTrigger: {
+                  trigger: card,
+                  start: 'top 82%',
+                  toggleActions: 'play none none none',
+                },
               },
-            });
+            );
           });
 
           const pillsRow = el.querySelector('.practice-row');
           if (pillsRow) {
-            gsap.from(el.querySelectorAll('.practice-pill'), {
-              opacity: 0,
-              y: 14,
-              duration: 0.55,
-              ease: 'power3.out',
-              stagger: 0.05,
-              scrollTrigger: {
-                trigger: pillsRow,
-                start: 'top 88%',
-                toggleActions: 'play none none none',
+            gsap.fromTo(
+              el.querySelectorAll('.practice-pill'),
+              { opacity: 0, y: 14 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.55,
+                ease: 'power3.out',
+                stagger: 0.05,
+                clearProps: 'transform,opacity',
+                scrollTrigger: {
+                  trigger: pillsRow,
+                  start: 'top 88%',
+                  toggleActions: 'play none none none',
+                },
               },
-            });
+            );
           }
         }, el);
 
