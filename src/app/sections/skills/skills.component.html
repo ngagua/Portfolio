@@ -8,16 +8,6 @@
     </p>
   </header>
 
-  <ul class="practice-row">
-    @for (badge of badges; track badge.label) {
-      <li class="practice-pill" [attr.data-level]="badge.level.toLowerCase()">
-        <span class="pill-dot" aria-hidden="true"></span>
-        <span class="pill-label">{{ badge.label }}</span>
-        <span class="pill-level">{{ badge.level }}</span>
-      </li>
-    }
-  </ul>
-
   <div class="cards-grid">
     @for (group of groups; track group.label; let i = $index) {
       <article class="skill-card" appReveal [appRevealDelay]="i * 0.08">
@@ -113,6 +103,19 @@
         </div>
       </article>
     }
+  </div>
+
+  <div class="strengths-block" appReveal>
+    <h4 class="strengths-label">Strengths</h4>
+    <ul class="practice-row">
+      @for (badge of badges; track badge.label) {
+        <li class="practice-pill" [attr.data-level]="badge.level.toLowerCase()">
+          <span class="pill-dot" aria-hidden="true"></span>
+          <span class="pill-label">{{ badge.label }}</span>
+          <span class="pill-level">{{ badge.level }}</span>
+        </li>
+      }
+    </ul>
   </div>
 
   <div class="extras-grid" appReveal>

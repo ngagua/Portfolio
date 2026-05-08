@@ -29,8 +29,20 @@ import { CountUpDirective } from '../../shared/directives/count-up.directive';
 
       <ul class="stats-grid" appReveal>
         <li>
+          <span class="stat-num" [appCountUp]="5" appCountUpSuffix="+">5+</span>
+          <span class="stat-label">Years building production software</span>
+        </li>
+        <li>
+          <span class="stat-num" [appCountUp]="10" appCountUpSuffix="+">10+</span>
+          <span class="stat-label">Projects shipped end-to-end</span>
+        </li>
+        <li>
+          <span class="stat-num" [appCountUp]="38">38</span>
+          <span class="stat-label">Markets reached via Vitality</span>
+        </li>
+        <li>
           <span class="stat-num" [appCountUp]="27" appCountUpSuffix="M+">27M+</span>
-          <span class="stat-label">Vitality members across 38 markets</span>
+          <span class="stat-label">Vitality members served</span>
         </li>
         <li>
           <span class="stat-num" [appCountUp]="1" appCountUpSuffix="M+">1M+</span>
@@ -39,10 +51,6 @@ import { CountUpDirective } from '../../shared/directives/count-up.directive';
         <li>
           <span class="stat-num" [appCountUp]="12">12</span>
           <span class="stat-label">Years leading public-sector teams</span>
-        </li>
-        <li>
-          <span class="stat-num" [appCountUp]="60">60</span>
-          <span class="stat-label">People managed at peak</span>
         </li>
       </ul>
     </section>

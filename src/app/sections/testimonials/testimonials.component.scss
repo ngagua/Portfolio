@@ -1,0 +1,70 @@
+@reference '../../../styles.css';
+
+.testimonials-grid {
+  @apply mt-12 grid gap-5 list-none p-0 m-0 md:grid-cols-2;
+}
+
+.testimonial-card {
+  @apply relative flex flex-col gap-5 p-7 bg-card border border-border overflow-hidden transition-all duration-300;
+  border-radius: var(--radius-card);
+
+  &::before {
+    content: '';
+    @apply absolute inset-x-0 top-0 h-px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in oklab, var(--color-primary) 60%, transparent),
+      transparent
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    @apply border-primary;
+    transform: translateY(-2px);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+.quote-mark {
+  width: 28px;
+  height: 28px;
+  color: color-mix(in oklab, var(--color-primary) 80%, transparent);
+}
+
+.quote-text {
+  @apply text-foreground leading-relaxed text-[1.05rem] m-0;
+}
+
+.quote-author {
+  @apply flex items-center gap-3 mt-auto pt-2;
+}
+
+.author-avatar {
+  @apply inline-grid place-items-center w-10 h-10 rounded-full font-display font-semibold text-sm shrink-0;
+  background: linear-gradient(
+    140deg,
+    color-mix(in oklab, var(--color-primary) 30%, var(--color-card-2)),
+    var(--color-card-2)
+  );
+  color: var(--color-primary-strong);
+  border: 1px solid color-mix(in oklab, var(--color-primary) 30%, var(--color-border));
+}
+
+.author-name {
+  @apply text-foreground font-medium text-sm;
+}
+
+.author-role {
+  @apply text-xs text-muted;
+}
+
+.author-context {
+  @apply text-[0.65rem] text-muted uppercase font-medium;
+  letter-spacing: 0.14em;
+}

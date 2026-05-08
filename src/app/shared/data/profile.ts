@@ -111,11 +111,8 @@ export const skills: SkillGroup[] = [
 export const practiceBadges: PracticeBadge[] = [
   { label: 'Performance', level: 'Expert' },
   { label: 'Scalability', level: 'Expert' },
-  { label: 'RESTful APIs', level: 'Expert' },
-  { label: 'Agile', level: 'Expert' },
-  { label: 'Problem solving', level: 'Expert' },
   { label: 'Team management', level: 'Expert' },
-  { label: 'Unit testing', level: 'Advanced' },
+  { label: 'Agile delivery', level: 'Expert' },
 ];
 
 export const languages: LanguageEntry[] = [

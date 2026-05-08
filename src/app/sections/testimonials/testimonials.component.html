@@ -1,0 +1,36 @@
+@if (hasAny()) {
+  <section id="testimonials" class="container-x section">
+    <header class="max-w-[60ch]" appReveal>
+      <p class="eyebrow">Working with me</p>
+      <h2 class="section-title mt-4">A few words from the people I've shipped with.</h2>
+    </header>
+
+    <ul class="testimonials-grid">
+      @for (item of items; track item.authorName + item.quote; let i = $index) {
+        <li class="testimonial-card" appReveal [appRevealDelay]="i * 0.1">
+          <svg
+            class="quote-mark"
+            viewBox="0 0 32 32"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M9.5 24c-3 0-5.5-2.5-5.5-5.5 0-5.5 4-10.5 10-13l1.5 3c-3.5 1.5-6 4-6.5 6.5h.5c2.5 0 4.5 2 4.5 4.5S12 24 9.5 24Zm14 0c-3 0-5.5-2.5-5.5-5.5 0-5.5 4-10.5 10-13l1.5 3c-3.5 1.5-6 4-6.5 6.5h.5c2.5 0 4.5 2 4.5 4.5S26 24 23.5 24Z"
+            />
+          </svg>
+          <p class="quote-text">{{ item.quote }}</p>
+          <footer class="quote-author">
+            <span class="author-avatar" aria-hidden="true">{{ item.initials }}</span>
+            <span class="flex flex-col gap-0.5">
+              <span class="author-name">{{ item.authorName }}</span>
+              <span class="author-role">{{ item.authorRole }}</span>
+              @if (item.authorContext) {
+                <span class="author-context">{{ item.authorContext }}</span>
+              }
+            </span>
+          </footer>
+        </li>
+      }
+    </ul>
+  </section>
+}

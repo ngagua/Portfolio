@@ -4,8 +4,17 @@
   perspective: 1400px;
 }
 
+.strengths-block {
+  @apply mt-12 flex flex-col gap-4;
+}
+
+.strengths-label {
+  @apply font-display font-semibold uppercase text-primary text-xs m-0;
+  letter-spacing: 0.18em;
+}
+
 .practice-row {
-  @apply mt-10 flex flex-wrap gap-2 list-none p-0 m-0;
+  @apply flex flex-wrap gap-2 list-none p-0 m-0;
 }
 
 .practice-pill {

@@ -22,3 +22,12 @@
 .repo-card {
   @apply flex flex-col gap-3.5 p-6 h-full text-foreground;
 }
+
+.github-cta {
+  @apply flex items-center gap-5 p-6 transition-all duration-300;
+
+  &:hover {
+    @apply border-primary;
+    transform: translateY(-2px);
+  }
+}

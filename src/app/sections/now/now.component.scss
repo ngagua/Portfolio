@@ -1,0 +1,77 @@
+@reference '../../../styles.css';
+
+.now-section {
+  @apply relative py-7 border-y border-border bg-card;
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--color-primary) 6%, transparent),
+      transparent 40%,
+      color-mix(in oklab, var(--color-aurora-violet) 6%, transparent)
+    ),
+    var(--color-card);
+}
+
+.now-label {
+  @apply inline-flex items-center gap-2.5 text-xs uppercase font-semibold text-foreground shrink-0;
+  letter-spacing: 0.18em;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--color-success);
+  box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-success) 60%, transparent);
+  animation: live-pulse 2s ease-in-out infinite;
+}
+
+.now-list {
+  @apply flex flex-wrap gap-3 list-none p-0 m-0 flex-1;
+}
+
+.now-card {
+  @apply inline-flex flex-wrap items-baseline gap-x-3 gap-y-1 px-4 py-2.5 rounded-xl border border-border bg-background transition-all duration-300;
+
+  &:hover {
+    @apply border-primary;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px -10px color-mix(in oklab, var(--color-primary) 60%, transparent);
+  }
+}
+
+.now-card-client {
+  @apply font-display font-semibold text-foreground text-sm;
+}
+
+.now-card-role {
+  @apply text-sm text-muted;
+}
+
+.now-card-context {
+  @apply text-xs text-muted uppercase font-medium;
+  letter-spacing: 0.12em;
+}
+
+.now-card-arrow {
+  @apply text-primary text-sm transition-transform duration-300;
+
+  .now-card:hover & {
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes live-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-success) 55%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 6px color-mix(in oklab, var(--color-success) 0%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-dot {
+    animation: none;
+  }
+}

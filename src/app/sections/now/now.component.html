@@ -1,0 +1,27 @@
+<section id="now" class="now-section" appReveal>
+  <div class="container-x flex flex-col gap-4 md:flex-row md:items-center md:gap-6">
+    <span class="now-label">
+      <span class="live-dot" aria-hidden="true"></span>
+      Currently building
+    </span>
+
+    <ul class="now-list">
+      @for (entry of entries; track entry.client) {
+        <li>
+          <a
+            class="now-card"
+            [href]="entry.href"
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.aria-label]="entry.client + ' — ' + entry.role"
+          >
+            <span class="now-card-client">{{ entry.client }}</span>
+            <span class="now-card-role">{{ entry.role }}</span>
+            <span class="now-card-context">{{ entry.context }}</span>
+            <span class="now-card-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

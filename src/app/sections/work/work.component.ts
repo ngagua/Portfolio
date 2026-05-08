@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { caseStudies } from '../../shared/data/case-studies';
-import { projects } from '../../shared/data/projects';
 import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
 
 @Component({
@@ -13,5 +12,4 @@ import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scrol
 })
 export class WorkComponent {
   protected readonly studies = caseStudies;
-  protected readonly projects = projects;
 }
