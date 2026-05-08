@@ -4,7 +4,7 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./pages/home/home.component').then((m) => m.HomeComponent),
-    title: 'Nikoloz Gagua — Senior-Level Software Developer',
+    title: 'Nikoloz Gagua - Senior Full-Stack Developer',
   },
   {
     path: 'work/:slug',

@@ -18,7 +18,7 @@ export const nextGenCaresCase: CaseStudy = {
   title: 'NextGen CARES — cardiac arrest registry for 1M+ patients',
   summary:
     'Independent contractor embedded with the Ventricle Pod in the CARES Program at Emory University’s Woodruff Health Sciences Center. Building and maintaining the Angular front-end and Java / Spring Boot back-end of NextGen CARES under a Master Service Agreement between Emory and Re-Software, Inc.',
-  role: 'Senior-Level Software Developer',
+  role: 'Senior Full-Stack Developer',
   period: 'October 2025 — present',
   stack: [
     'Angular',

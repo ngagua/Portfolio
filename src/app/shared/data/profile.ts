@@ -46,7 +46,7 @@ export const profile = {
   phone: '+995 577 055464',
   bio: [
     'I build production web applications across the stack — Angular front-ends with strict typing and signal-based state, Spring Boot services with clean REST contracts, and Drupal sites that scale.',
-    'Currently a Senior-Level Software Developer at Re-Software, Inc., embedded with the Ventricle Pod in the CARES Program at Emory University. I build and maintain NextGen CARES — a CDC- and Emory-developed cardiac arrest registry covering 34 state registries with 170M+ catchment and 1M+ patients enrolled.',
+    'Currently a Senior Full-Stack Developer at Re-Software, Inc., embedded with the Ventricle Pod in the CARES Program at Emory University. I build and maintain NextGen CARES — a CDC- and Emory-developed cardiac arrest registry covering 34 state registries with 170M+ catchment and 1M+ patients enrolled.',
     "In parallel, I have been a contracted engineer on Vitality Group's global wellness platform since 2022 — used by 27M+ members across 38 markets. Before software, I led teams of up to sixty at the Georgia Revenue Service for over a decade.",
   ],
 } as const;

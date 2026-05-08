@@ -19,7 +19,7 @@ export class NowComponent {
   protected readonly entries: NowEntry[] = [
     {
       client: 'NextGen CARES',
-      role: 'Senior-Level Software Developer',
+      role: 'Senior Full-Stack Developer',
       context: 'Re-Software · Emory CARES Program',
       href: 'https://mycares.net/nextGen',
     },
