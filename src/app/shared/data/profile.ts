@@ -16,6 +16,8 @@ export interface SkillGroup {
 
 export interface SocialLink {
   label: string;
+  /** Short, human-friendly form shown in the UI (e.g. "linkedin.com/nikoloz-gagua"). */
+  display: string;
   href: string;
 }
 
@@ -38,16 +40,16 @@ export interface EducationEntry {
 export const profile = {
   name: 'Nikoloz Gagua',
   monogram: 'NG',
-  role: 'Senior-Level Software Developer',
+  role: 'Senior Full-Stack Developer',
   tagline:
     'Angular front-ends. Java & Spring back-ends. Building healthcare and wellness platforms used by millions worldwide.',
   location: 'Tbilisi, Georgia',
   email: 'ngagua@gmail.com',
   phone: '+995 577 055464',
   bio: [
-    'I build production web applications across the stack — Angular front-ends with strict typing and signal-based state, Spring Boot services with clean REST contracts, and Drupal sites that scale.',
-    'Currently a Senior Full-Stack Developer at Re-Software, Inc., embedded with the Ventricle Pod in the CARES Program at Emory University. I build and maintain NextGen CARES — a CDC- and Emory-developed cardiac arrest registry covering 34 state registries with 170M+ catchment and 1M+ patients enrolled.',
-    "In parallel, I have been a contracted engineer on Vitality Group's global wellness platform since 2022 — used by 27M+ members across 38 markets. Before software, I led teams of up to sixty at the Georgia Revenue Service for over a decade.",
+    'I build production web applications across the stack - Angular front-ends with strict typing and signal-based state, Spring Boot services with clean REST contracts, and Drupal sites that scale.',
+    'Currently a Senior-Level Software Developer at Re-Software, Inc., embedded with the Ventricle Pod in the CARES Program at Emory University. I build and maintain NextGen CARES - a CDC- and Emory-developed cardiac arrest registry covering 34 state registries with 170M+ catchment and 1M+ patients enrolled.',
+    "In parallel, I have been a contracted engineer on Vitality Group's global wellness platform since 2022 - used by 27M+ members across 38 markets. Before software, I led teams of up to sixty at the Georgia Revenue Service for over a decade.",
   ],
 } as const;
 
@@ -123,12 +125,12 @@ export const languages: LanguageEntry[] = [
 
 export const education: EducationEntry[] = [
   {
-    degree: "Master's — Business / Managerial Economics",
+    degree: "Master's - Business / Managerial Economics",
     school: 'Caucasus Academic Centre',
     period: '2009 – 2011',
   },
   {
-    degree: "Bachelor's — Business Administration & Management",
+    degree: "Bachelor's - Business Administration & Management",
     school: 'Tbilisi State University',
     period: '2005 – 2009',
   },
@@ -137,7 +139,19 @@ export const education: EducationEntry[] = [
 export const certifications: string[] = ['Angular Bootcamp Course (Omedia)'];
 
 export const socials: SocialLink[] = [
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/nikoloz-gagua-4302ab1a0/' },
-  { label: 'GitHub', href: 'https://github.com/ngagua' },
-  { label: 'Email', href: 'mailto:ngagua@gmail.com' },
+  {
+    label: 'LinkedIn',
+    display: 'linkedin.com/nikoloz-gagua',
+    href: 'https://www.linkedin.com/in/nikoloz-gagua-4302ab1a0/',
+  },
+  {
+    label: 'GitHub',
+    display: 'github.com/ngagua',
+    href: 'https://github.com/ngagua',
+  },
+  {
+    label: 'Email',
+    display: 'ngagua@gmail.com',
+    href: 'mailto:ngagua@gmail.com',
+  },
 ];

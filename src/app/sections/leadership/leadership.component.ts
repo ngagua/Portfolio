@@ -23,7 +23,7 @@ interface Pillar {
             <strong class="text-foreground font-semibold">Deputy Head of Division</strong>
             for eight years. I led teams of up to
             <strong class="text-foreground font-semibold">60 people</strong>
-            across multi-stakeholder projects with public and private partners — strategic planning,
+            across multi-stakeholder projects with public and private partners - strategic planning,
             delivery oversight, and team growth.
           </p>
           <p class="section-lead">

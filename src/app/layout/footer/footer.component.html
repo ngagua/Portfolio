@@ -6,17 +6,48 @@
     <p class="text-sm">Built with Angular, GSAP, and a lot of coffee.</p>
   </div>
 
-  <ul class="flex flex-wrap gap-4 list-none m-0 p-0">
+  <ul class="flex flex-wrap gap-2 list-none m-0 p-0">
     @for (link of socials; track link.label) {
       <li>
         <a
           [href]="link.href"
-          target="_blank"
-          rel="noopener noreferrer"
+          [attr.target]="link.label === 'Email' ? null : '_blank'"
+          [attr.rel]="link.label === 'Email' ? null : 'noopener noreferrer'"
           [attr.aria-label]="link.label"
-          class="text-sm text-muted hover:text-primary transition-colors"
+          class="social-link inline-flex items-center gap-2 px-3 py-2 rounded-full border border-border text-sm text-muted transition-all duration-200 hover:text-primary hover:border-primary"
         >
-          {{ link.label }}
+          <span class="social-icon" aria-hidden="true">
+            @switch (link.label) {
+              @case ('LinkedIn') {
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.22 8h4.56v14H.22V8Zm7.7 0h4.36v1.92h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 7v7.44h-4.55v-6.6c0-1.57-.03-3.6-2.19-3.6-2.19 0-2.52 1.71-2.52 3.48V22H7.92V8Z"
+                  />
+                </svg>
+              }
+              @case ('GitHub') {
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.08 1.85 1.24 1.85 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.31-.54-1.54.11-3.21 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.67.24 2.9.12 3.21.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 0Z"
+                  />
+                </svg>
+              }
+              @case ('Email') {
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="m3 7 9 6 9-6" />
+                </svg>
+              }
+            }
+          </span>
+          <span>{{ link.label }}</span>
         </a>
       </li>
     }

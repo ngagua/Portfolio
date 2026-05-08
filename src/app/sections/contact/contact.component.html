@@ -4,7 +4,7 @@
       <p class="eyebrow">Contact</p>
       <h2 class="section-title">Have a project in mind? Let's talk.</h2>
       <p class="section-lead">
-        I'm open to full-time and contract work — full-stack, front-end-heavy, or back-end-only.
+        I'm open to full-time and contract work - full-stack, front-end-heavy, or back-end-only.
         Drop a note and I'll respond within a couple of days.
       </p>
 
@@ -28,7 +28,7 @@
                 rel="noopener noreferrer"
                 class="text-base text-foreground border-b border-border pb-1 transition-colors hover:border-primary break-words"
               >
-                {{ link.href }}
+                {{ link.display }}
               </a>
             </li>
           }
@@ -84,7 +84,7 @@
         ></textarea>
         @if (form.controls.message.touched && form.controls.message.invalid) {
           <small class="text-xs text-danger">
-            Tell me a bit more — at least 10 characters.
+            Tell me a bit more - at least 10 characters.
           </small>
         }
       </div>
@@ -109,7 +109,7 @@
 
       @if (status() === 'success') {
         <p class="text-sm text-success m-0" role="status">
-          Thanks — I'll be in touch within a couple of days.
+          Thanks - I'll be in touch within a couple of days.
         </p>
       }
       @if (status() === 'error') {
