@@ -1,17 +1,103 @@
 @reference '../../../styles.css';
 
-.featured-card {
-  @apply relative grid gap-5 overflow-hidden;
-  padding: clamp(1.75rem, 3vw, 2.75rem);
+/* ---------- timeline ---------- */
+
+.timeline {
+  @apply relative grid list-none p-0 m-0;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  column-gap: 1.25rem;
+  row-gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .timeline {
+    grid-template-columns: 3rem minmax(0, 1fr);
+    column-gap: 1.75rem;
+    row-gap: 3rem;
+  }
+}
+
+.timeline-bar {
+  @apply absolute pointer-events-none;
+  left: calc(1.25rem - 1px);
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 2px;
+  background: color-mix(in oklab, var(--color-border) 70%, transparent);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .timeline-bar {
+    left: calc(1.5rem - 1px);
+  }
+}
+
+.timeline-bar-fill {
+  @apply block w-full;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--color-primary),
+    color-mix(in oklab, var(--color-aurora-violet) 90%, var(--color-primary))
+  );
+  transform-origin: top;
+  transform: scaleY(0);
+}
+
+.timeline-entry {
+  @apply relative grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+}
+
+.timeline-marker {
+  @apply relative flex justify-center;
+  padding-top: 1.6rem;
+}
+
+.marker-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: var(--color-primary);
+  box-shadow:
+    0 0 0 4px var(--color-background),
+    0 0 0 6px color-mix(in oklab, var(--color-primary) 35%, transparent),
+    0 0 14px color-mix(in oklab, var(--color-primary) 60%, transparent);
+  transform-origin: center;
+}
+
+.timeline-entry:first-child .marker-dot {
+  animation: pulse-current 2.4s ease-in-out infinite;
+}
+
+/* ---------- card ---------- */
+
+.timeline-card {
+  @apply relative flex flex-col gap-4 overflow-hidden;
+  padding: clamp(1.4rem, 2.4vw, 2rem);
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 
   &::before {
     content: '';
-    @apply absolute inset-0 pointer-events-none;
+    @apply absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-500;
     background: radial-gradient(
-      circle at top right,
-      var(--color-primary-soft),
+      450px circle at 100% 0%,
+      color-mix(in oklab, var(--color-primary) 14%, transparent),
       transparent 60%
     );
+  }
+
+  &:hover {
+    @apply border-primary;
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px -22px color-mix(in oklab, var(--color-primary) 50%, transparent);
+
+    &::before {
+      opacity: 1;
+    }
   }
 
   > * {
@@ -19,9 +105,121 @@
   }
 }
 
-.repo-card {
-  @apply flex flex-col gap-3.5 p-6 h-full text-foreground;
+.entry-meta {
+  @apply flex flex-wrap items-center gap-3 text-xs;
 }
+
+.entry-period {
+  @apply text-muted uppercase font-medium;
+  letter-spacing: 0.16em;
+}
+
+.entry-status {
+  @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-border text-foreground text-[0.65rem] uppercase font-semibold;
+  letter-spacing: 0.14em;
+
+  &::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 9999px;
+    background: var(--color-muted);
+  }
+
+  &--current {
+    border-color: color-mix(in oklab, var(--color-primary) 60%, var(--color-border));
+    color: var(--color-primary-strong);
+
+    &::before {
+      background: var(--color-primary);
+      box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary) 25%, transparent);
+    }
+  }
+}
+
+.entry-title {
+  @apply font-display font-semibold text-foreground max-w-[34ch] leading-[1.15] m-0;
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+}
+
+.entry-role {
+  @apply flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-sm m-0;
+
+  > span:first-child {
+    @apply text-foreground font-medium;
+  }
+}
+
+.entry-client {
+  @apply text-muted;
+}
+
+.entry-summary {
+  @apply text-base text-muted-foreground max-w-[70ch] leading-relaxed m-0;
+}
+
+.entry-stack {
+  @apply flex flex-wrap gap-2 list-none p-0 m-0;
+}
+
+.chip--muted {
+  @apply text-muted;
+}
+
+/* ---------- grouped stack (e.g. Omedia: Drupal + Angular) ---------- */
+
+.entry-stack-groups {
+  @apply flex flex-col gap-3;
+}
+
+.stack-group {
+  @apply flex flex-wrap items-center gap-x-3 gap-y-2;
+}
+
+.stack-group-label {
+  @apply inline-flex items-center gap-2 text-[0.65rem] uppercase font-semibold shrink-0 pr-3;
+  letter-spacing: 0.16em;
+  color: var(--group-accent, var(--color-primary));
+  border-right: 1px solid color-mix(in oklab, var(--group-accent, var(--color-primary)) 40%, transparent);
+
+  &::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background: var(--group-accent, var(--color-primary));
+    box-shadow: 0 0 8px color-mix(in oklab, var(--group-accent, var(--color-primary)) 60%, transparent);
+  }
+}
+
+/* First group keeps the primary accent; second uses the aurora-violet accent
+ * defined in styles.css so the dual-stack story (Drupal vs. Angular) reads
+ * at a glance without breaking the palette. */
+.stack-group[data-group='0'] {
+  --group-accent: var(--color-aurora-violet);
+}
+.stack-group[data-group='0'] .chip {
+  border-color: color-mix(in oklab, var(--color-aurora-violet) 35%, var(--color-border));
+  background: color-mix(in oklab, var(--color-aurora-violet) 8%, var(--color-card-2));
+}
+
+.stack-group[data-group='1'] {
+  --group-accent: var(--color-primary);
+}
+
+.entry-actions {
+  @apply flex flex-wrap items-center gap-x-6 gap-y-2 mt-2;
+}
+
+.entry-link {
+  @apply font-medium text-primary-strong border-b border-primary-soft pb-1 transition-colors hover:text-foreground hover:border-primary;
+}
+
+.entry-out {
+  @apply text-sm text-muted transition-colors hover:text-primary;
+}
+
+/* ---------- github CTA (kept) ---------- */
 
 .github-cta {
   @apply flex items-center gap-5 p-6 transition-all duration-300;
@@ -29,5 +227,32 @@
   &:hover {
     @apply border-primary;
     transform: translateY(-2px);
+  }
+}
+
+/* ---------- animations / a11y ---------- */
+
+@keyframes pulse-current {
+  0%, 100% {
+    box-shadow:
+      0 0 0 4px var(--color-background),
+      0 0 0 6px color-mix(in oklab, var(--color-primary) 30%, transparent),
+      0 0 14px color-mix(in oklab, var(--color-primary) 50%, transparent);
+  }
+  50% {
+    box-shadow:
+      0 0 0 4px var(--color-background),
+      0 0 0 10px color-mix(in oklab, var(--color-primary) 0%, transparent),
+      0 0 22px color-mix(in oklab, var(--color-primary) 75%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-bar-fill {
+    transform: scaleY(1);
+  }
+  .marker-dot,
+  .timeline-entry:first-child .marker-dot {
+    animation: none;
   }
 }

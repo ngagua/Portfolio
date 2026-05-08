@@ -5,7 +5,11 @@ export const serverRoutes: ServerRoute[] = [
   {
     path: 'work/:slug',
     renderMode: RenderMode.Prerender,
-    getPrerenderParams: async () => [{ slug: 'nextgen-cares' }, { slug: 'vitality' }],
+    getPrerenderParams: async () => [
+      { slug: 'nextgen-cares' },
+      { slug: 'vitality' },
+      { slug: 'omedia' },
+    ],
   },
   { path: '**', renderMode: RenderMode.Prerender },
 ];

@@ -1,45 +1,84 @@
 <section id="work" class="container-x section">
   <header class="max-w-[60ch] mb-12" appReveal>
     <p class="eyebrow">Selected work</p>
-    <h2 class="section-title mt-4">Two engagements. Millions of users.</h2>
+    <h2 class="section-title mt-4">Three engagements. One full-stack.</h2>
     <p class="section-lead">
-      Long-running, full-stack engagements where I own the work end-to-end - from spec and
-      design to release. Click through for the detail.
+      Long-running engagements where I own the work end-to-end, from spec and design to
+      release. Click through any card for the deep case study.
     </p>
   </header>
 
-  <div class="grid gap-6 lg:grid-cols-2">
+  <ol class="timeline">
+    <span class="timeline-bar" aria-hidden="true">
+      <span class="timeline-bar-fill"></span>
+    </span>
+
     @for (study of studies; track study.slug; let i = $index) {
-      <article class="featured-card card" appReveal [appRevealDelay]="i * 0.1">
-        <div class="flex flex-wrap items-center gap-4 text-sm">
-          <span class="uppercase font-medium text-primary tracking-[0.18em]">
-            @if (i === 0) { Current · headline } @else { Long-running · 3+ years }
-          </span>
-          <span class="text-muted">{{ study.period }}</span>
-        </div>
-        <h3
-          class="font-display font-semibold text-foreground max-w-[32ch] leading-[1.15] text-[clamp(1.4rem,2.4vw,1.85rem)]"
-        >
-          {{ study.title }}
-        </h3>
-        <p class="text-base text-muted m-0">{{ study.client }}</p>
-        <p class="text-base text-muted-foreground max-w-[70ch] leading-relaxed">
-          {{ study.summary }}
-        </p>
-        <ul class="flex flex-wrap gap-2 list-none m-0 p-0">
-          @for (tech of study.stack.slice(0, 6); track tech) {
-            <li class="chip">{{ tech }}</li>
+      <li class="timeline-entry" appReveal [appRevealDelay]="i * 0.08">
+        <span class="timeline-marker" aria-hidden="true">
+          <span class="marker-dot"></span>
+        </span>
+
+        <article class="timeline-card card">
+          <div class="entry-meta">
+            <span class="entry-period">{{ study.period }}</span>
+            <span class="entry-status" [class.entry-status--current]="i === 0">
+              {{ study.status }}
+            </span>
+          </div>
+
+          <h3 class="entry-title">{{ study.title }}</h3>
+
+          <p class="entry-role">
+            <span>{{ study.role }}</span>
+            <span class="entry-client">· {{ study.client }}</span>
+          </p>
+
+          <p class="entry-summary">{{ study.summary }}</p>
+
+          @if (study.stackGroups; as groups) {
+            <div class="entry-stack-groups">
+              @for (group of groups; track group.label; let g = $index) {
+                <div class="stack-group" [attr.data-group]="g">
+                  <span class="stack-group-label">{{ group.label }}</span>
+                  <ul class="entry-stack">
+                    @for (tech of group.items; track tech) {
+                      <li class="chip">{{ tech }}</li>
+                    }
+                  </ul>
+                </div>
+              }
+            </div>
+          } @else {
+            <ul class="entry-stack">
+              @for (tech of study.stack.slice(0, 7); track tech) {
+                <li class="chip">{{ tech }}</li>
+              }
+              @if (study.stack.length > 7) {
+                <li class="chip chip--muted">+{{ study.stack.length - 7 }} more</li>
+              }
+            </ul>
           }
-        </ul>
-        <a
-          class="self-start mt-3 font-medium text-primary-strong border-b border-primary-soft pb-1 transition-colors hover:text-foreground hover:border-primary"
-          [routerLink]="['/work', study.slug]"
-        >
-          Read the case study →
-        </a>
-      </article>
+
+          <div class="entry-actions">
+            <a class="entry-link" [routerLink]="['/work', study.slug]">
+              Read the case study →
+            </a>
+            @if (study.link; as link) {
+              <a
+                class="entry-out"
+                [href]="link.href"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ link.label }} ↗
+              </a>
+            }
+          </div>
+        </article>
+      </li>
     }
-  </div>
+  </ol>
 
   <a
     class="github-cta card mt-16"

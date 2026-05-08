@@ -5,7 +5,15 @@ export interface CaseStudy {
   summary: string;
   role: string;
   period: string;
+  /** Short status label rendered as a pill on the timeline (e.g. "Current"). */
+  status: string;
   stack: string[];
+  /**
+   * Optional grouped breakdown for the timeline card. When present, the card
+   * renders each group as a labelled cluster instead of the flat `stack` list.
+   * Useful for engagements that span multiple distinct sub-stacks.
+   */
+  stackGroups?: { label: string; items: string[] }[];
   problem: string;
   approach: string[];
   outcomes: string[];
@@ -19,7 +27,8 @@ export const nextGenCaresCase: CaseStudy = {
   summary:
     'Independent contractor embedded with the Ventricle Pod in the CARES Program at Emory University’s Woodruff Health Sciences Center. Building and maintaining the Angular front-end and Java / Spring Boot back-end of NextGen CARES under a Master Service Agreement between Emory and Re-Software, Inc.',
   role: 'Senior-Level Software Developer',
-  period: 'October 2025 - present',
+  period: 'Oct 2025 - Present',
+  status: 'Newest',
   stack: [
     'Angular',
     'Signals',
@@ -54,7 +63,8 @@ export const vitalityCase: CaseStudy = {
   summary:
     'Three-year engagement (contracted through Omedia) building and maintaining Vitality’s global wellness platform - used by 27M+ members across 38 markets through partnerships with leading insurers and employers.',
   role: 'Software Developer (Angular + Java / Spring Boot)',
-  period: 'September 2022 - present',
+  period: 'Sep 2022 - Present',
+  status: 'Flagship client · 3+ years',
   stack: [
     'Angular',
     'Signals',
@@ -85,4 +95,55 @@ export const vitalityCase: CaseStudy = {
   link: { label: 'powerofvitality.com', href: 'https://www.powerofvitality.com' },
 };
 
-export const caseStudies: CaseStudy[] = [nextGenCaresCase, vitalityCase];
+export const omediaCase: CaseStudy = {
+  slug: 'omedia',
+  client: 'Omedia',
+  title: 'Omedia - Angular & Drupal full-stack development',
+  summary:
+    'Long-running engagement with Omedia, the Tbilisi-based agency that anchors my full-stack practice. I deliver Angular front-ends and Spring Boot APIs for enterprise clients (Vitality is the flagship), and develop and maintain Drupal-based websites and applications across the broader client portfolio.',
+  role: 'Angular Developer · Drupal Developer',
+  period: 'Jun 2022 - Present',
+  status: 'Main employer',
+  stack: [
+    'Angular',
+    'TypeScript',
+    'Signals',
+    'NgRx',
+    'RxJS',
+    'Java',
+    'Spring Boot',
+    'Drupal 8 / 9 / 10',
+    'Twig',
+    'PHP',
+    'Custom modules',
+    'Theming',
+  ],
+  stackGroups: [
+    {
+      label: 'Drupal CMS',
+      items: ['Drupal 8 / 9 / 10', 'Twig', 'PHP', 'Custom modules', 'Theming'],
+    },
+    {
+      label: 'Angular full-stack',
+      items: ['Angular', 'TypeScript', 'Signals', 'NgRx', 'RxJS', 'Spring Boot'],
+    },
+  ],
+  problem:
+    'Deliver enterprise-grade Angular features and Drupal-based sites for a varied client portfolio while staying aligned with modern Angular practices and CMS best practices. The brief shifts client to client - one week a signals-driven SPA, the next a Drupal theme - so the codebase has to favour the right tool for each job.',
+  approach: [
+    'Build Angular front-ends using standalone components, signals, OnPush change detection, NgRx state management, and reactive RxJS streams.',
+    'Develop and maintain Drupal-based websites and web applications - creating and customizing themes, templates, and modules to project requirements.',
+    'Ensure every site is responsive, accessible, and performance-optimised; integrate third-party services and APIs across both Angular and Drupal stacks.',
+    'Manage Drupal site configurations, content types, taxonomies, and permissions; debug and troubleshoot module, theme, and configuration issues.',
+  ],
+  outcomes: [
+    'Long-running engagement (3+ years) trusted with both flagship client work (Vitality) and broader agency scope.',
+    'Full-stack delivery across Angular, Spring Boot, and Drupal - picking the right tool for each brief instead of forcing one stack everywhere.',
+    'Mentored peers and shared knowledge across the agency.',
+  ],
+};
+
+/**
+ * Ordered most-recent-first for the timeline view in the Selected Work section.
+ */
+export const caseStudies: CaseStudy[] = [nextGenCaresCase, vitalityCase, omediaCase];
