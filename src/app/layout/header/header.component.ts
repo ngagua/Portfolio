@@ -16,6 +16,7 @@ interface NavLink {
   host: {
     class: 'app-header',
     role: 'banner',
+    '(document:keydown.escape)': 'closeMenu()',
   },
 })
 export class HeaderComponent {

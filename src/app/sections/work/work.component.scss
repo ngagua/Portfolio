@@ -115,7 +115,7 @@
 }
 
 .entry-status {
-  @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-border text-foreground text-[0.65rem] uppercase font-semibold;
+  @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-border text-foreground text-xs uppercase font-semibold;
   letter-spacing: 0.14em;
 
   &::before {

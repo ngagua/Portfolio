@@ -14,7 +14,7 @@ interface Pillar {
     <section id="leadership" class="container-x section">
       <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
         <div class="flex flex-col gap-6" appReveal>
-          <p class="eyebrow">Before software</p>
+          <p class="eyebrow">Before software development</p>
           <h2 class="section-title">A decade of leading public-sector teams.</h2>
           <p class="section-lead">
             From 2010 to 2022, I served at the

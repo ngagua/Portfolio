@@ -46,7 +46,7 @@
 }
 
 .pill-level {
-  @apply text-[0.65rem] text-muted uppercase font-medium;
+  @apply text-xs text-muted uppercase font-medium;
   letter-spacing: 0.14em;
 }
 
@@ -187,7 +187,7 @@
 .x-name { @apply text-foreground; }
 
 .x-level {
-  @apply text-[0.7rem] text-muted uppercase font-medium;
+  @apply text-xs text-muted uppercase font-medium;
   letter-spacing: 0.14em;
 }
 

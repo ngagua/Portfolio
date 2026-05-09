@@ -12,9 +12,7 @@ import { CountUpDirective } from '../../shared/directives/count-up.directive';
         <header class="lg:sticky lg:top-24" appReveal>
           <p class="eyebrow">About</p>
           <h2 class="section-title mt-4">
-            Engineer who codes the front,
-            <br />
-            owns the back, and ships the whole.
+            Engineer who codes the front, owns the back, and ships the whole.
           </h2>
         </header>
 

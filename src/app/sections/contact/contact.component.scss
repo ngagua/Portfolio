@@ -22,5 +22,11 @@
 
   [aria-invalid='true'] {
     border-color: var(--color-danger);
+    background: color-mix(in oklab, var(--color-danger) 6%, oklch(15% 0.01 270));
+
+    &:focus {
+      border-color: var(--color-danger);
+      box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-danger) 22%, transparent);
+    }
   }
 }

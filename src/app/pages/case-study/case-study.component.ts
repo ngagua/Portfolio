@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  effect,
+  inject,
+  input,
+} from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { caseStudies } from '../../shared/data/case-studies';
 
@@ -14,11 +21,19 @@ export class CaseStudyComponent {
 
   private readonly router = inject(Router);
 
-  protected readonly study = computed(() => {
-    const found = caseStudies.find((c) => c.slug === this.slug());
-    if (!found) {
-      this.router.navigateByUrl('/');
-    }
-    return found ?? caseStudies[0];
-  });
+  protected readonly study = computed(
+    () => caseStudies.find((c) => c.slug === this.slug()) ?? caseStudies[0],
+  );
+
+  constructor() {
+    // Redirect away from unknown slugs as a side effect, not from inside the
+    // computed - keeps `study` pure and avoids the navigateByUrl firing on
+    // every signal read during change detection.
+    effect(() => {
+      const slug = this.slug();
+      if (!caseStudies.some((c) => c.slug === slug)) {
+        this.router.navigateByUrl('/');
+      }
+    });
+  }
 }

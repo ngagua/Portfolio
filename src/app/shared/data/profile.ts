@@ -63,10 +63,8 @@ export const skills: SkillGroup[] = [
       { name: 'TypeScript', level: 5 },
       { name: 'Signals', level: 5 },
       { name: 'NgRx', level: 4 },
-      { name: 'RxJS', level: 5 },
-      { name: 'SASS', level: 4 },
+      { name: 'RxJS', level: 4 },
       { name: 'Tailwind CSS', level: 4 },
-      { name: 'HTML5', level: 5 },
     ],
   },
   {
@@ -96,16 +94,17 @@ export const skills: SkillGroup[] = [
     ],
   },
   {
-    label: 'Tooling',
+    label: 'Tooling & DevOps',
     icon: 'tooling',
-    description: 'Quality, automation, and the workflow that ties it together.',
+    description: 'Build, ship, and run - version control, containers, CI/CD, and tests in between.',
     items: [
       { name: 'Git', level: 5 },
+      { name: 'Docker', level: 4 },
       { name: 'Maven', level: 4 },
       { name: 'Gradle', level: 4 },
       { name: 'Vitest / Jest', level: 4 },
-      { name: 'CI/CD', level: 4 },
-      { name: 'Code review', level: 5 },
+      { name: 'Jenkins / GitHub Actions', level: 4 },
+      { name: 'Google Cloud', level: 3 },
     ],
   },
 ];

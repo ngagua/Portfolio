@@ -24,17 +24,25 @@ export class ScrollService {
     }
     this.initialized = true;
 
-    // Reset scroll position on every successful navigation. Doing this through
-    // the router (rather than Angular's `scrollPositionRestoration`) keeps Lenis
-    // in sync — `window.scrollTo` alone gets clobbered by Lenis's RAF loop, which
-    // is why navigating to a tall page like a case study sometimes landed at
-    // an arbitrary scroll position (the Outcomes section).
+    // Reset scroll position on every successful route navigation. Doing this
+    // through the router (rather than Angular's `scrollPositionRestoration`)
+    // keeps Lenis in sync — `window.scrollTo` alone gets clobbered by Lenis's
+    // RAF loop, which is why case-study pages sometimes landed mid-page.
+    //
+    // Skip when the URL has a fragment (e.g. /#about) — the router's
+    // anchorScrolling already handles in-page jumps, and resetting to top
+    // would undo the user's intended scroll.
     this.router.events
       .pipe(
-        filter((event) => event instanceof NavigationEnd),
+        filter((event): event is NavigationEnd => event instanceof NavigationEnd),
         takeUntilDestroyed(this.destroyRef),
       )
-      .subscribe(() => this.resetToTop());
+      .subscribe((event) => {
+        if (event.urlAfterRedirects.includes('#')) {
+          return;
+        }
+        this.resetToTop();
+      });
 
     afterNextRender(async () => {
       const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
