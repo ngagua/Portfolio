@@ -36,10 +36,22 @@ export class CountUpDirective {
 
       el.textContent = `${this.prefix()}0${this.suffix()}`;
 
+      // Register teardown synchronously while the view is alive, so we never
+      // call onDestroy on a destroyed view after the import resolves.
+      let cleanup: (() => void) | null = null;
+      let destroyed = false;
+      this.destroyRef.onDestroy(() => {
+        destroyed = true;
+        cleanup?.();
+      });
+
       const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
         import('gsap'),
         import('gsap/ScrollTrigger'),
       ]);
+      if (destroyed) {
+        return;
+      }
       gsap.registerPlugin(ScrollTrigger);
 
       const counter = { value: 0 };
@@ -62,10 +74,10 @@ export class CountUpDirective {
         },
       });
 
-      this.destroyRef.onDestroy(() => {
+      cleanup = () => {
         tween.scrollTrigger?.kill();
         tween.kill();
-      });
+      };
     });
   }
 }

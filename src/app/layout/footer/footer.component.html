@@ -2,8 +2,11 @@
   class="container-x flex flex-col items-start justify-between gap-5 md:flex-row md:items-center"
 >
   <div class="flex flex-col gap-1.5">
-    <p class="text-foreground font-medium">© {{ year }} {{ name }}</p>
-    <p class="text-sm">Built with Angular, GSAP, and a lot of coffee.</p>
+    <p class="text-foreground font-medium">© {{ year() }} {{ name }}</p>
+    <p class="text-sm">
+      Built with <span appAuroraText>Angular</span>, <span appAuroraText>GSAP</span>, and a lot of
+      coffee.
+    </p>
   </div>
 
   <ul class="flex flex-wrap gap-2 list-none m-0 p-0">

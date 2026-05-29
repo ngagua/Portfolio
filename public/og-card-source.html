@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1200, initial-scale=1" />
+    <title>OG card source — screenshot the 1200×630 frame to og-social-card.png</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: oklch(10% 0.012 265);
+        --fg: oklch(97% 0.008 265);
+        --muted: oklch(72% 0.018 265);
+        --primary: oklch(72% 0.22 245);
+        --primary-strong: oklch(80% 0.24 245);
+        --violet: oklch(62% 0.22 310);
+        --teal: oklch(74% 0.18 195);
+        --border: oklch(28% 0.03 265);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #15171c;
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        font-family: 'Inter', system-ui, sans-serif;
+      }
+
+      /* Screenshot THIS element at exactly 1200×630 → public/og-social-card.png */
+      .card {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background: var(--bg);
+        color: var(--fg);
+        isolation: isolate;
+      }
+
+      /* aurora orbs */
+      .orb {
+        position: absolute;
+        border-radius: 9999px;
+        filter: blur(110px);
+      }
+      .orb-a {
+        width: 620px;
+        height: 620px;
+        top: -240px;
+        left: -160px;
+        background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+        opacity: 0.6;
+      }
+      .orb-b {
+        width: 560px;
+        height: 560px;
+        bottom: -260px;
+        right: -120px;
+        background: radial-gradient(circle, var(--violet) 0%, transparent 70%);
+        opacity: 0.55;
+      }
+      .orb-c {
+        width: 420px;
+        height: 420px;
+        bottom: -180px;
+        left: 38%;
+        background: radial-gradient(circle, var(--teal) 0%, transparent 70%);
+        opacity: 0.45;
+      }
+
+      /* faint grid */
+      .grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(to right, oklch(28% 0.014 265 / 0.5) 1px, transparent 1px),
+          linear-gradient(to bottom, oklch(28% 0.014 265 / 0.5) 1px, transparent 1px);
+        background-size: 64px 64px;
+        mask-image: radial-gradient(circle at 70% 40%, black, transparent 80%);
+        opacity: 0.4;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        padding: 72px 76px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--primary-strong);
+      }
+      .dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 9999px;
+        background: var(--primary);
+        box-shadow: 0 0 0 4px oklch(72% 0.22 245 / 0.2);
+      }
+
+      .monogram {
+        display: grid;
+        place-items: center;
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        font-family: 'Inter Tight', sans-serif;
+        font-weight: 700;
+        font-size: 22px;
+        color: var(--primary-strong);
+        background: linear-gradient(
+          135deg,
+          oklch(72% 0.22 245 / 0.18),
+          oklch(62% 0.22 310 / 0.12)
+        );
+        border: 1px solid oklch(72% 0.22 245 / 0.45);
+      }
+
+      .headline {
+        font-family: 'Inter Tight', sans-serif;
+        font-weight: 700;
+        line-height: 1.02;
+        letter-spacing: -0.02em;
+      }
+      .name {
+        font-size: 92px;
+        color: var(--fg);
+      }
+      .role {
+        font-size: 92px;
+        background: linear-gradient(90deg, var(--primary-strong) 0%, var(--violet) 55%, var(--teal) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .sub {
+        margin-top: 26px;
+        font-size: 30px;
+        font-weight: 500;
+        color: var(--muted);
+      }
+
+      .stats {
+        display: flex;
+        gap: 14px;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 22px;
+        border-radius: 9999px;
+        border: 1px solid var(--border);
+        background: oklch(18% 0.016 265 / 0.7);
+        font-size: 22px;
+        font-weight: 500;
+        color: var(--fg);
+      }
+      .pill b {
+        font-family: 'Inter Tight', sans-serif;
+        font-weight: 700;
+        background: linear-gradient(90deg, var(--primary-strong), var(--teal));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .pill .pdot {
+        width: 8px;
+        height: 8px;
+        border-radius: 9999px;
+        background: var(--teal);
+      }
+
+      .hint {
+        margin-top: 18px;
+        font-size: 13px;
+        color: #8a8f99;
+        text-align: center;
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card" id="og-card">
+      <span class="orb orb-a"></span>
+      <span class="orb orb-b"></span>
+      <span class="orb orb-c"></span>
+      <span class="grid"></span>
+
+      <div class="content">
+        <div class="top">
+          <span class="eyebrow"><span class="dot"></span> Available for new work · Tbilisi, Georgia</span>
+          <span class="monogram">NG</span>
+        </div>
+
+        <div class="headline">
+          <div class="name">Nikoloz Gagua</div>
+          <div class="role">Senior Full-Stack Developer</div>
+          <div class="sub">Angular front-ends · Java &amp; Spring back-ends</div>
+        </div>
+
+        <div class="stats">
+          <span class="pill"><span class="pdot"></span> <b>27M+</b>&nbsp;members</span>
+          <span class="pill"><span class="pdot"></span> <b>1M+</b>&nbsp;patients</span>
+          <span class="pill"><span class="pdot"></span> <b>38</b>&nbsp;markets</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="hint">
+      Screenshot the 1200×630 card above and save it as <code>public/og-social-card.png</code>.
+    </p>
+  </body>
+</html>

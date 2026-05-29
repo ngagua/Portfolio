@@ -1,0 +1,41 @@
+@reference '../../../../styles.css';
+
+.cloud {
+  @apply relative overflow-hidden;
+}
+
+.cloud.is-scroll {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.track {
+  @apply flex items-center gap-8;
+}
+
+.cloud.is-scroll .track {
+  width: max-content;
+  animation: marquee 34s linear infinite;
+}
+
+.cloud:not(.is-scroll) .track {
+  @apply flex-wrap justify-center gap-x-8 gap-y-6;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cloud.is-scroll {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+  .cloud.is-scroll .track {
+    @apply flex-wrap justify-center;
+    width: auto;
+    animation: none;
+  }
+}

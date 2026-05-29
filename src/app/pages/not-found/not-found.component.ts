@@ -1,13 +1,22 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { AuroraBackgroundComponent } from '../../shared/components/aurora-background/aurora-background.component';
+import { AuroraTextDirective } from '../../shared/directives/aurora-text.directive';
 
 @Component({
   selector: 'app-not-found',
-  imports: [RouterLink],
+  imports: [RouterLink, AuroraBackgroundComponent, AuroraTextDirective],
   template: `
-    <section class="container-x section flex flex-col justify-center min-h-[70vh]">
-      <p class="eyebrow">404</p>
-      <h1 class="section-title mt-4">Lost in the void.</h1>
+    <section class="container-x section flex flex-col justify-center min-h-[70vh] isolate">
+      <app-aurora-background
+        intensity="section"
+        palette="blue-violet"
+        [orbCount]="2"
+        [showGrid]="false"
+        [showBeams]="false"
+      />
+      <p class="eyebrow">404 — Deep space</p>
+      <h1 class="section-title mt-4">Lost in <span appAuroraText>the void</span>.</h1>
       <p class="section-lead">
         That page doesn't exist (or it never did). Let's get you back to safer ground.
       </p>

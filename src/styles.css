@@ -1,30 +1,62 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-background: oklch(14% 0.01 270);
-  --color-foreground: oklch(96% 0.01 270);
-  --color-muted: oklch(72% 0.015 270);
-  --color-muted-foreground: oklch(85% 0.012 270);
+  /* Base surfaces */
+  --color-background: oklch(10% 0.012 265); /* deeper ink navy */
+  --color-background-alt: oklch(13% 0.013 265);
+  --color-foreground: oklch(97% 0.008 265); /* ~19:1 on bg */
+  --color-muted: oklch(70% 0.018 265); /* AA on bg AND on card */
+  --color-muted-foreground: oklch(82% 0.012 265);
 
-  --color-card: oklch(18% 0.012 270);
-  --color-card-2: oklch(22% 0.014 270);
-  --color-border: oklch(28% 0.014 270);
-  --color-border-strong: oklch(40% 0.04 270);
+  /* Cards + borders */
+  --color-card: oklch(14% 0.014 265);
+  --color-card-2: oklch(18% 0.016 265);
+  --color-border: oklch(24% 0.018 265);
+  --color-border-strong: oklch(36% 0.05 255); /* aurora-tinted */
 
-  --color-primary: oklch(72% 0.16 250);
-  --color-primary-strong: oklch(78% 0.18 250);
-  --color-primary-soft: oklch(72% 0.16 250 / 0.16);
-  --color-primary-foreground: oklch(15% 0.01 270);
+  /* Primary (electric blue) - boosted chroma vs previous 0.16 */
+  --color-primary: oklch(72% 0.22 245);
+  --color-primary-strong: oklch(80% 0.24 245);
+  --color-primary-soft: oklch(72% 0.22 245 / 0.18);
+  --color-primary-foreground: oklch(10% 0.012 265);
 
-  --color-success: oklch(80% 0.12 145);
-  --color-danger: oklch(75% 0.15 25);
+  /* Secondary (electric teal) - new */
+  --color-secondary: oklch(74% 0.18 195);
+  --color-secondary-soft: oklch(74% 0.18 195 / 0.15);
 
-  --color-aurora-violet: oklch(60% 0.15 320);
+  /* Aurora stops */
+  --color-aurora-blue: oklch(72% 0.22 245);
+  --color-aurora-violet: oklch(62% 0.22 310);
+  --color-aurora-teal: oklch(74% 0.18 195);
+
+  /* Reusable gradient tokens - use via var() in SCSS only, NOT as Tailwind utilities */
+  --gradient-aurora: linear-gradient(
+    135deg,
+    var(--color-aurora-blue) 0%,
+    var(--color-aurora-violet) 50%,
+    var(--color-aurora-teal) 100%
+  );
+  --gradient-aurora-text: linear-gradient(
+    90deg,
+    var(--color-primary-strong) 0%,
+    var(--color-aurora-violet) 55%,
+    var(--color-aurora-teal) 100%
+  );
+  --gradient-aurora-subtle: linear-gradient(
+    135deg,
+    oklch(72% 0.22 245 / 0.12) 0%,
+    oklch(62% 0.22 310 / 0.1) 50%,
+    oklch(74% 0.18 195 / 0.08) 100%
+  );
+
+  --color-success: oklch(80% 0.14 155);
+  --color-danger: oklch(72% 0.18 25);
 
   --font-display: 'Inter Tight', system-ui, sans-serif;
   --font-sans: 'Inter', system-ui, sans-serif;
 
   --radius-card: 1rem;
+  --radius-card-lg: 1.5rem;
 
   --container-portfolio: 1200px;
 }
@@ -100,8 +132,9 @@
 
     &::before {
       content: '';
-      @apply w-6 inline-block bg-primary;
+      @apply w-6 inline-block;
       height: 1px;
+      background: var(--gradient-aurora);
     }
   }
 
@@ -123,6 +156,7 @@
 
     &:hover {
       @apply border-border-strong bg-card-2;
+      box-shadow: 0 16px 44px -26px color-mix(in oklab, var(--color-primary) 55%, transparent);
     }
   }
 
@@ -141,6 +175,7 @@
     &:hover:not(:disabled) {
       @apply bg-primary-strong;
       transform: translateY(-1px);
+      box-shadow: 0 10px 28px -12px color-mix(in oklab, var(--color-primary) 75%, transparent);
     }
 
     &:disabled {
@@ -155,6 +190,14 @@
       @apply bg-primary-soft;
       border-color: var(--color-primary);
     }
+  }
+
+  .aurora-text {
+    background: var(--gradient-aurora-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--color-primary-strong); /* fallback for forced-colors / older renderers */
   }
 
   .skip-link {

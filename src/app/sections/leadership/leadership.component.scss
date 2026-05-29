@@ -1,10 +1,15 @@
 @reference '../../../styles.css';
 
+.lead-strong {
+  color: var(--color-primary-strong);
+}
+
 .leadership-list {
   @apply list-none p-0 m-0 flex flex-col;
 
   > li {
-    @apply grid items-start gap-5 py-6 border-b border-border;
+    @apply grid items-start gap-5 py-6 border-b;
+    border-color: var(--color-border-strong);
     grid-template-columns: 4rem 1fr;
 
     &:last-child {

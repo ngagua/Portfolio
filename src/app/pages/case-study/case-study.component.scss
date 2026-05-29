@@ -1,5 +1,11 @@
 @reference '../../../styles.css';
 
+/* Stacking context so the aurora backdrop clips to the header. */
+.case-header {
+  @apply relative;
+  isolation: isolate;
+}
+
 .case-meta-label {
   @apply font-display font-medium uppercase text-primary text-xs mb-3;
   letter-spacing: 0.18em;

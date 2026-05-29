@@ -1,4 +1,12 @@
 <section id="skills" class="container-x section skills-section">
+  <app-aurora-background
+    intensity="subtle"
+    palette="teal-violet"
+    [orbCount]="2"
+    [showGrid]="false"
+    [showBeams]="false"
+    [showSparkles]="false"
+  />
   <header class="max-w-[60ch]" appReveal>
     <p class="eyebrow">Toolkit</p>
     <h2 class="section-title mt-4">The stack I reach for.</h2>
@@ -116,6 +124,10 @@
         </li>
       }
     </ul>
+  </div>
+
+  <div class="logo-cloud" appReveal>
+    <app-tech-logo-cloud [names]="techLogos" layout="scroll" />
   </div>
 
   <div class="extras-grid" appReveal>

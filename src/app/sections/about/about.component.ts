@@ -2,12 +2,26 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { profile } from '../../shared/data/profile';
 import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
 import { CountUpDirective } from '../../shared/directives/count-up.directive';
+import { AuroraTextDirective } from '../../shared/directives/aurora-text.directive';
+import { AuroraBackgroundComponent } from '../../shared/components/aurora-background/aurora-background.component';
 
 @Component({
   selector: 'app-about',
-  imports: [RevealOnScrollDirective, CountUpDirective],
+  imports: [
+    RevealOnScrollDirective,
+    CountUpDirective,
+    AuroraTextDirective,
+    AuroraBackgroundComponent,
+  ],
   template: `
     <section id="about" class="container-x section">
+      <app-aurora-background
+        intensity="subtle"
+        [orbCount]="2"
+        [showGrid]="false"
+        [showBeams]="false"
+        [showSparkles]="false"
+      />
       <div class="grid items-start gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:gap-16">
         <header class="lg:sticky lg:top-24" appReveal>
           <p class="eyebrow">About</p>
@@ -39,11 +53,11 @@ import { CountUpDirective } from '../../shared/directives/count-up.directive';
           <span class="stat-label">Markets reached via Vitality</span>
         </li>
         <li>
-          <span class="stat-num" [appCountUp]="27" appCountUpSuffix="M+">27M+</span>
+          <span class="stat-num" appAuroraText [appCountUp]="27" appCountUpSuffix="M+">27M+</span>
           <span class="stat-label">Vitality members served</span>
         </li>
         <li>
-          <span class="stat-num" [appCountUp]="1" appCountUpSuffix="M+">1M+</span>
+          <span class="stat-num" appAuroraText [appCountUp]="1" appCountUpSuffix="M+">1M+</span>
           <span class="stat-label">Patients enrolled in NextGen CARES</span>
         </li>
         <li>

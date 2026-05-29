@@ -1,9 +1,15 @@
 @reference '../../../styles.css';
 
 :host {
-  @apply block bg-background border-t border-border;
+  @apply block border-t;
+  border-color: var(--color-border-strong);
+  background: color-mix(in oklab, var(--color-background) 92%, var(--color-primary) 4%);
   margin-top: 6rem;
   padding-block: 3rem;
+}
+
+.social-link:hover {
+  box-shadow: 0 2px 16px -6px color-mix(in oklab, var(--color-primary) 40%, transparent);
 }
 
 .social-icon {

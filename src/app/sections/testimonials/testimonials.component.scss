@@ -14,7 +14,8 @@
     background: linear-gradient(
       90deg,
       transparent,
-      color-mix(in oklab, var(--color-primary) 60%, transparent),
+      var(--color-primary),
+      var(--color-aurora-violet),
       transparent
     );
     opacity: 0;
@@ -34,11 +35,12 @@
 .quote-mark {
   width: 28px;
   height: 28px;
-  color: color-mix(in oklab, var(--color-primary) 80%, transparent);
+  color: var(--color-primary-strong);
 }
 
 .quote-text {
-  @apply text-foreground leading-relaxed text-[1.05rem] m-0;
+  @apply text-foreground leading-relaxed m-0;
+  font-size: clamp(1.1rem, 1.5vw, 1.2rem);
 }
 
 .quote-author {
@@ -47,13 +49,11 @@
 
 .author-avatar {
   @apply inline-grid place-items-center w-10 h-10 rounded-full font-display font-semibold text-sm shrink-0;
-  background: linear-gradient(
-    140deg,
-    color-mix(in oklab, var(--color-primary) 30%, var(--color-card-2)),
-    var(--color-card-2)
-  );
+  background:
+    var(--gradient-aurora-subtle),
+    var(--color-card-2);
   color: var(--color-primary-strong);
-  border: 1px solid color-mix(in oklab, var(--color-primary) 30%, var(--color-border));
+  border: 1px solid color-mix(in oklab, var(--color-primary) 35%, var(--color-border));
 }
 
 .author-name {

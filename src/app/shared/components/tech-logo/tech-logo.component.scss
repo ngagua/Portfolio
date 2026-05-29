@@ -1,0 +1,39 @@
+@reference '../../../../styles.css';
+
+:host {
+  @apply inline-flex items-center justify-center shrink-0;
+  width: var(--logo-size, 2.25rem);
+  height: var(--logo-size, 2.25rem);
+  color: var(--color-muted);
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+:host(:hover) {
+  color: var(--color-foreground);
+  transform: translateY(-2px);
+}
+
+svg {
+  @apply w-full h-full;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+svg text {
+  fill: currentColor;
+  stroke: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 8.5px;
+  text-anchor: middle;
+}
+
+.dot {
+  fill: currentColor;
+  stroke: none;
+}

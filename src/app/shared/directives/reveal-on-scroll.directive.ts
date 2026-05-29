@@ -30,10 +30,22 @@ export class RevealOnScrollDirective {
         return;
       }
 
+      // Register teardown synchronously while the view is still alive, so we
+      // never call onDestroy on a destroyed view after the import resolves.
+      let cleanup: (() => void) | null = null;
+      let destroyed = false;
+      this.destroyRef.onDestroy(() => {
+        destroyed = true;
+        cleanup?.();
+      });
+
       const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
         import('gsap'),
         import('gsap/ScrollTrigger'),
       ]);
+      if (destroyed) {
+        return;
+      }
 
       gsap.registerPlugin(ScrollTrigger);
 
@@ -52,10 +64,10 @@ export class RevealOnScrollDirective {
         },
       });
 
-      this.destroyRef.onDestroy(() => {
+      cleanup = () => {
         tween.scrollTrigger?.kill();
         tween.kill();
-      });
+      };
     });
   }
 }

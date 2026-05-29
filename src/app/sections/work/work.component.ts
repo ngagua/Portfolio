@@ -9,10 +9,15 @@ import {
 import { RouterLink } from '@angular/router';
 import { caseStudies } from '../../shared/data/case-studies';
 import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
+import { AuroraTextDirective } from '../../shared/directives/aurora-text.directive';
+import {
+  GradientMeshComponent,
+  MeshVariant,
+} from '../../shared/components/gradient-mesh/gradient-mesh.component';
 
 @Component({
   selector: 'app-work',
-  imports: [RouterLink, RevealOnScrollDirective],
+  imports: [RouterLink, RevealOnScrollDirective, AuroraTextDirective, GradientMeshComponent],
   templateUrl: './work.component.html',
   styleUrl: './work.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,7 +26,25 @@ export class WorkComponent {
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly destroyRef = inject(DestroyRef);
 
-  protected readonly studies = caseStudies;
+  /** View model: split each title so the first word can take the aurora
+   * gradient, and map the slug to a per-project mesh hue. */
+  protected readonly studies = caseStudies.map((study) => {
+    const space = study.title.indexOf(' ');
+    const variant: MeshVariant =
+      study.slug === 'nextgen-cares'
+        ? 'nextgen'
+        : study.slug === 'vitality'
+          ? 'vitality'
+          : study.slug === 'omedia'
+            ? 'omedia'
+            : 'default';
+    return {
+      ...study,
+      titleHead: space === -1 ? study.title : study.title.slice(0, space),
+      titleRest: space === -1 ? '' : study.title.slice(space),
+      meshVariant: variant,
+    };
+  });
 
   constructor() {
     afterNextRender(async () => {
@@ -36,13 +59,23 @@ export class WorkComponent {
         return;
       }
 
+      let ctx: { revert(): void } | null = null;
+      let destroyed = false;
+      this.destroyRef.onDestroy(() => {
+        destroyed = true;
+        ctx?.revert();
+      });
+
       const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
         import('gsap'),
         import('gsap/ScrollTrigger'),
       ]);
+      if (destroyed) {
+        return;
+      }
       gsap.registerPlugin(ScrollTrigger);
 
-      const ctx = gsap.context(() => {
+      ctx = gsap.context(() => {
         // Bar fills from top to bottom as the user scrolls through the timeline.
         gsap.fromTo(
           '.timeline-bar-fill',
@@ -80,8 +113,6 @@ export class WorkComponent {
           );
         });
       }, el);
-
-      this.destroyRef.onDestroy(() => ctx.revert());
     });
   }
 }

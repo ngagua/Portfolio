@@ -14,10 +14,12 @@ import {
   skills,
 } from '../../shared/data/profile';
 import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
+import { TechLogoCloudComponent } from '../../shared/components/tech-logo/tech-logo-cloud.component';
+import { AuroraBackgroundComponent } from '../../shared/components/aurora-background/aurora-background.component';
 
 @Component({
   selector: 'app-skills',
-  imports: [RevealOnScrollDirective],
+  imports: [RevealOnScrollDirective, TechLogoCloudComponent, AuroraBackgroundComponent],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -32,6 +34,18 @@ export class SkillsComponent {
   protected readonly education = education;
   protected readonly certifications = certifications;
   protected readonly dotsRange = [1, 2, 3, 4, 5];
+  protected readonly techLogos = [
+    'angular',
+    'typescript',
+    'rxjs',
+    'ngrx',
+    'java',
+    'spring',
+    'mysql',
+    'docker',
+    'drupal',
+    'git',
+  ];
 
   constructor() {
     afterNextRender(async () => {
@@ -39,6 +53,15 @@ export class SkillsComponent {
       const el = this.host.nativeElement;
       const cards = el.querySelectorAll<HTMLElement>('.skill-card');
       const cleanups: Array<() => void> = [];
+      let ctx: { revert(): void } | null = null;
+      let destroyed = false;
+
+      // Register teardown synchronously while the view is alive.
+      this.destroyRef.onDestroy(() => {
+        destroyed = true;
+        ctx?.revert();
+        cleanups.forEach((c) => c());
+      });
 
       if (!reduce) {
         cards.forEach((card) => {
@@ -67,9 +90,12 @@ export class SkillsComponent {
           import('gsap'),
           import('gsap/ScrollTrigger'),
         ]);
+        if (destroyed) {
+          return;
+        }
         gsap.registerPlugin(ScrollTrigger);
 
-        const ctx = gsap.context(() => {
+        ctx = gsap.context(() => {
           cards.forEach((card) => {
             gsap.fromTo(
               card.querySelectorAll('.dot'),
@@ -129,13 +155,6 @@ export class SkillsComponent {
             );
           }
         }, el);
-
-        this.destroyRef.onDestroy(() => {
-          ctx.revert();
-          cleanups.forEach((c) => c());
-        });
-      } else {
-        this.destroyRef.onDestroy(() => cleanups.forEach((c) => c()));
       }
     });
   }

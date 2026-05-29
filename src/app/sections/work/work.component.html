@@ -20,6 +20,7 @@
         </span>
 
         <article class="timeline-card card">
+          <app-gradient-mesh class="entry-art" [variant]="study.meshVariant" aspect="square" />
           <div class="entry-meta">
             <span class="entry-period">{{ study.period }}</span>
             <span class="entry-status" [class.entry-status--current]="i === 0">
@@ -27,7 +28,9 @@
             </span>
           </div>
 
-          <h3 class="entry-title">{{ study.title }}</h3>
+          <h3 class="entry-title">
+            <span appAuroraText>{{ study.titleHead }}</span>{{ study.titleRest }}
+          </h3>
 
           <p class="entry-role">
             <span>{{ study.role }}</span>

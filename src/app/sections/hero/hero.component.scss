@@ -6,203 +6,11 @@
   min-height: calc(100dvh - 4rem);
 }
 
-.bg-fx {
-  @apply absolute inset-0 -z-10 pointer-events-none overflow-hidden;
-}
-
-/* ---------- aurora orbs (masked vignette) ---------- */
-
-.aurora {
-  @apply absolute inset-0;
-  mask-image: radial-gradient(ellipse at center, transparent 0%, transparent 18%, black 55%);
-  -webkit-mask-image: radial-gradient(
-    ellipse at center,
-    transparent 0%,
-    transparent 18%,
-    black 55%
-  );
-}
-
-.orb {
-  @apply absolute rounded-full;
-  filter: blur(120px);
-}
-
-.orb-a {
-  width: 42vw;
-  height: 42vw;
-  top: -18vw;
-  left: -14vw;
-  background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
-  opacity: 0.55;
-  animation: drift 22s ease-in-out infinite alternate;
-}
-
-.orb-b {
-  width: 36vw;
-  height: 36vw;
-  bottom: -16vw;
-  right: -10vw;
-  background: radial-gradient(circle, var(--color-aurora-violet) 0%, transparent 70%);
-  opacity: 0.5;
-  animation: drift 28s ease-in-out -6s infinite alternate;
-}
-
-/* Brighter focal orb anchoring the upper-right area. */
-.orb-c {
-  width: 26vw;
-  height: 26vw;
-  top: 6vh;
-  right: -4vw;
-  background: radial-gradient(circle, var(--color-primary-strong) 0%, transparent 70%);
-  opacity: 0.45;
-  animation: drift 18s ease-in-out -3s infinite alternate;
-}
-
-/* Counterpart focal orb in the bottom-right to mirror orb-c. */
-.orb-d {
-  width: 28vw;
-  height: 28vw;
-  bottom: 0;
-  right: -2vw;
-  background: radial-gradient(circle, var(--color-primary-strong) 0%, transparent 70%);
-  opacity: 0.48;
-  animation: drift 20s ease-in-out -9s infinite alternate;
-}
-
-/* ---------- grid pattern ---------- */
-
-.grid {
-  @apply absolute inset-0;
-  background-image:
-    linear-gradient(
-      to right,
-      color-mix(in oklab, var(--color-border) 60%, transparent) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      color-mix(in oklab, var(--color-border) 60%, transparent) 1px,
-      transparent 1px
-    );
-  background-size: 80px 80px;
-  mask-image: radial-gradient(circle at center, black, transparent 75%);
-  opacity: 0.35;
-}
-
-/* ---------- diagonal light beams ---------- */
-
-.beam {
-  @apply absolute pointer-events-none;
-  filter: blur(28px);
-  opacity: 0.35;
-  mix-blend-mode: screen;
-}
-
-.beam-a {
-  top: -20%;
-  left: 8%;
-  width: 6px;
-  height: 140%;
-  transform: rotate(18deg);
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    color-mix(in oklab, var(--color-primary) 95%, transparent),
-    transparent
-  );
-  animation: beam-shift 14s ease-in-out infinite alternate;
-}
-
-.beam-b {
-  bottom: -20%;
-  right: 14%;
-  width: 5px;
-  height: 110%;
-  transform: rotate(-22deg);
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    color-mix(in oklab, var(--color-aurora-violet) 90%, transparent),
-    transparent
-  );
-  opacity: 0.3;
-  animation: beam-shift 18s ease-in-out -5s infinite alternate;
-}
-
-/* ---------- sparkle field ---------- */
-
-.sparkles {
-  @apply absolute inset-0;
-}
-
-.sparkle {
-  @apply absolute rounded-full;
-  width: var(--sz, 4px);
-  height: var(--sz, 4px);
-  background: var(--color-foreground);
-  box-shadow:
-    0 0 14px color-mix(in oklab, var(--color-primary) 85%, transparent),
-    0 0 4px color-mix(in oklab, var(--color-foreground) 80%, transparent);
-  opacity: 0;
-  animation: twinkle var(--dur, 4s) ease-in-out var(--delay, 0s) infinite;
-}
-
-.s1 {
-  top: 18%;
-  left: 12%;
-  --sz: 3px;
-  --dur: 5s;
-  --delay: 0s;
-}
-.s2 {
-  top: 32%;
-  left: 78%;
-  --sz: 4px;
-  --dur: 6s;
-  --delay: 1.2s;
-}
-.s3 {
-  top: 62%;
-  left: 22%;
-  --sz: 2px;
-  --dur: 4.5s;
-  --delay: 0.6s;
-}
-.s4 {
-  top: 14%;
-  left: 64%;
-  --sz: 2.5px;
-  --dur: 7s;
-  --delay: 2.1s;
-}
-.s5 {
-  top: 78%;
-  left: 58%;
-  --sz: 3px;
-  --dur: 5.5s;
-  --delay: 1.8s;
-}
-.s6 {
-  top: 48%;
-  left: 8%;
-  --sz: 2px;
-  --dur: 6.5s;
-  --delay: 3s;
-}
-.s7 {
-  top: 70%;
-  left: 88%;
-  --sz: 3.5px;
-  --dur: 5s;
-  --delay: 0.4s;
-}
-.s8 {
-  top: 26%;
-  left: 44%;
-  --sz: 2.5px;
-  --dur: 4.8s;
-  --delay: 2.6s;
+/* Cap the cover art so it stays balanced against the copy column. */
+.hero-visual {
+  width: 100%;
+  max-width: 30rem;
+  margin-inline: auto;
 }
 
 /* ---------- inline indicators ---------- */
@@ -219,17 +27,6 @@
   transform-origin: top;
 }
 
-/* ---------- keyframes ---------- */
-
-@keyframes drift {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  100% {
-    transform: translate3d(8vw, 6vh, 0) scale(1.1);
-  }
-}
-
 @keyframes pulse {
   50% {
     box-shadow: 0 0 0 8px transparent;
@@ -237,7 +34,8 @@
 }
 
 @keyframes cue {
-  0%, 100% {
+  0%,
+  100% {
     transform: scaleY(0.4);
     opacity: 0.3;
   }
@@ -247,41 +45,9 @@
   }
 }
 
-@keyframes twinkle {
-  0%, 100% {
-    opacity: 0.15;
-    transform: scale(0.6);
-  }
-  45% {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-  55% {
-    opacity: 1;
-    transform: scale(1.15);
-  }
-}
-
-@keyframes beam-shift {
-  0% {
-    opacity: 0.1;
-    transform: rotate(var(--rot, 18deg)) translateX(-30px);
-  }
-  100% {
-    opacity: 0.22;
-    transform: rotate(var(--rot, 18deg)) translateX(30px);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .orb,
   .meta-dot,
-  .cue-line,
-  .sparkle,
-  .beam {
+  .cue-line {
     animation: none;
-  }
-  .sparkle {
-    opacity: 0.7;
   }
 }

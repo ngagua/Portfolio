@@ -8,7 +8,7 @@
     class="inline-flex items-center gap-1.5 font-display font-bold text-base tracking-tight text-foreground"
   >
     <span
-      class="inline-grid place-items-center w-8 h-8 rounded-lg bg-primary-soft text-primary-strong text-sm"
+      class="monogram inline-grid place-items-center w-8 h-8 rounded-lg text-primary-strong text-sm"
     >
       {{ monogram }}
     </span>
@@ -18,7 +18,7 @@
   <nav class="hidden md:inline-flex gap-8" aria-label="Primary">
     @for (link of links; track link.href) {
       <a
-        class="text-sm text-muted hover:text-foreground transition-colors"
+        class="nav-link text-sm text-muted hover:text-foreground transition-colors"
         [href]="link.href"
         (click)="closeMenu()"
       >

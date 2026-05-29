@@ -1,0 +1,61 @@
+@reference '../../../../styles.css';
+
+:host {
+  @apply relative block overflow-hidden;
+  border-radius: inherit;
+  background: var(--color-card);
+
+  /* default = full aurora */
+  --mesh-1: color-mix(in oklab, var(--color-primary) 60%, transparent);
+  --mesh-2: color-mix(in oklab, var(--color-aurora-violet) 55%, transparent);
+  --mesh-3: color-mix(in oklab, var(--color-aurora-teal) 50%, transparent);
+}
+
+:host(.aspect-wide) {
+  aspect-ratio: 16 / 9;
+}
+:host(.aspect-hero) {
+  aspect-ratio: 4 / 3;
+}
+:host(.aspect-square) {
+  aspect-ratio: 1 / 1;
+}
+
+/* ---------- per-project hue emphasis ---------- */
+
+:host(.variant-nextgen) {
+  --mesh-1: color-mix(in oklab, var(--color-primary-strong) 70%, transparent);
+  --mesh-2: color-mix(in oklab, var(--color-primary) 55%, transparent);
+  --mesh-3: color-mix(in oklab, var(--color-aurora-teal) 45%, transparent);
+}
+:host(.variant-vitality) {
+  --mesh-1: color-mix(in oklab, var(--color-aurora-teal) 65%, transparent);
+  --mesh-2: color-mix(in oklab, var(--color-secondary) 55%, transparent);
+  --mesh-3: color-mix(in oklab, var(--color-aurora-violet) 40%, transparent);
+}
+:host(.variant-omedia) {
+  --mesh-1: color-mix(in oklab, var(--color-aurora-violet) 65%, transparent);
+  --mesh-2: color-mix(in oklab, var(--color-primary) 50%, transparent);
+  --mesh-3: color-mix(in oklab, var(--color-aurora-violet) 45%, transparent);
+}
+
+:host::before {
+  content: '';
+  @apply absolute inset-0;
+  background:
+    radial-gradient(60% 70% at 18% 22%, var(--mesh-1) 0%, transparent 60%),
+    radial-gradient(55% 65% at 82% 28%, var(--mesh-2) 0%, transparent 58%),
+    radial-gradient(75% 80% at 60% 95%, var(--mesh-3) 0%, transparent 62%),
+    conic-gradient(from 210deg at 72% 38%, transparent 0deg, var(--mesh-2) 90deg, transparent 200deg);
+  filter: blur(6px) saturate(1.15);
+}
+
+/* fine grain - pure CSS dot tile, zero runtime cost */
+:host::after {
+  content: '';
+  @apply absolute inset-0;
+  background-image: radial-gradient(var(--color-foreground) 0.5px, transparent 0.5px);
+  background-size: 4px 4px;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+}

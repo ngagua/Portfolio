@@ -1,97 +1,81 @@
-<div class="bg-fx" aria-hidden="true">
-  <div class="aurora">
-    <span class="orb orb-a"></span>
-    <span class="orb orb-b"></span>
-    <span class="orb orb-c"></span>
-    <span class="orb orb-d"></span>
-  </div>
-  <span class="grid"></span>
-  <span class="beam beam-a"></span>
-  <span class="beam beam-b"></span>
-  <div class="sparkles">
-    <span class="sparkle s1"></span>
-    <span class="sparkle s2"></span>
-    <span class="sparkle s3"></span>
-    <span class="sparkle s4"></span>
-    <span class="sparkle s5"></span>
-    <span class="sparkle s6"></span>
-    <span class="sparkle s7"></span>
-    <span class="sparkle s8"></span>
-  </div>
-</div>
+<app-aurora-background intensity="hero" palette="full" [orbCount]="4" />
 
 <div
-  class="container-x flex flex-col justify-center gap-7 min-h-[calc(100dvh-4rem)] pt-12 pb-32 sm:py-16 md:py-24"
+  class="container-x grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 min-h-[calc(100dvh-4rem)] pt-12 pb-32 sm:py-16 md:py-24"
 >
-  <p class="eyebrow" data-hero="eyebrow">Available for new work</p>
+  <div class="flex flex-col justify-center gap-7">
+    <p class="eyebrow" data-hero="eyebrow">Open to senior roles · {{ location }}</p>
 
-  <h1
-    class="font-display font-semibold text-foreground flex flex-col gap-1 leading-none tracking-tighter text-[clamp(2.5rem,7vw,5.5rem)]"
-    data-hero="title"
-  >
-    <span class="inline-block" data-hero="line">{{ name }}</span>
-    <span class="inline-block text-primary-strong" data-hero="line">
-      Senior full-stack developer
-    </span>
-    <span class="inline-block text-muted font-medium" data-hero="line">
-      Angular front-ends · Spring back-ends
-    </span>
-  </h1>
-
-  <p
-    class="max-w-[60ch] text-muted text-[clamp(1.05rem,1.4vw,1.2rem)] leading-relaxed"
-    data-hero="tag"
-  >
-    {{ tagline }}
-  </p>
-
-  <div
-    class="flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted uppercase tracking-wider"
-    data-hero="meta"
-  >
-    <span class="inline-flex items-center gap-2">
-      <span class="meta-dot w-2 h-2 rounded-full" aria-hidden="true"></span>
-      {{ location }}
-    </span>
-    <span>Remote-friendly</span>
-    <span>Senior full-stack</span>
-  </div>
-
-  <div class="flex flex-wrap gap-3 mt-2" data-hero="actions">
-    <a class="btn btn-primary" href="#work">See selected work</a>
-    <a class="btn btn-ghost" href="#contact">Get in touch →</a>
-    <a
-      class="btn btn-ghost gap-2"
-      href="/nikoloz-gagua-cv.pdf"
-      download="nikoloz-gagua-cv.pdf"
-      aria-label="Download CV as PDF"
+    <h1
+      class="font-display font-semibold text-foreground flex flex-col gap-1 leading-none tracking-tighter text-[clamp(2.5rem,7vw,5.5rem)]"
+      data-hero="title"
     >
-      <svg
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
+      <span class="inline-block" data-hero="line">{{ name }}</span>
+      <span class="inline-block" data-hero="line" appAuroraText> Senior full-stack developer </span>
+      <span class="inline-block text-muted font-medium" data-hero="line">
+        Angular front-ends · Spring back-ends
+      </span>
+    </h1>
+
+    <p
+      class="max-w-[60ch] text-muted text-[clamp(1.05rem,1.4vw,1.2rem)] leading-relaxed"
+      data-hero="tag"
+    >
+      {{ tagline }}
+    </p>
+
+    <div
+      class="flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted uppercase tracking-wider"
+      data-hero="meta"
+    >
+      <span class="inline-flex items-center gap-2">
+        <span class="meta-dot w-2 h-2 rounded-full" aria-hidden="true"></span>
+        {{ location }}
+      </span>
+      <span>Remote-friendly</span>
+      <span>Senior full-stack</span>
+    </div>
+
+    <div class="flex flex-wrap gap-3 mt-2" data-hero="actions">
+      <a class="btn btn-primary" href="#work">See selected work</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch →</a>
+      <a
+        class="btn btn-ghost gap-2"
+        href="/nikoloz-gagua-cv.pdf"
+        download="nikoloz-gagua-cv.pdf"
+        aria-label="Download CV as PDF"
       >
-        <path d="M12 3v12" />
-        <path d="m7 10 5 5 5-5" />
-        <path d="M5 21h14" />
-      </svg>
-      Download CV
-    </a>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M12 3v12" />
+          <path d="m7 10 5 5 5-5" />
+          <path d="M5 21h14" />
+        </svg>
+        Download CV
+      </a>
+    </div>
   </div>
 
-  <a
-    class="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5 text-xs uppercase tracking-[0.25em] text-muted"
-    href="#about"
-    aria-label="Scroll to about"
-    data-hero="cue"
-  >
-    <span class="cue-line block w-px h-10" aria-hidden="true"></span>
-    <span>Scroll</span>
-  </a>
+  <div class="hero-visual hidden lg:block" data-hero="cover" aria-hidden="true">
+    <app-code-window [animated]="isClient()" />
+  </div>
 </div>
+
+<a
+  class="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5 text-xs uppercase tracking-[0.25em] text-muted"
+  href="#about"
+  aria-label="Scroll to about"
+  data-hero="cue"
+>
+  <span class="cue-line block w-px h-10" aria-hidden="true"></span>
+  <span>Scroll</span>
+</a>

@@ -1,33 +1,40 @@
 <article class="block pt-16 pb-24">
-  <header class="container-x flex flex-col gap-4 pb-16 border-b border-border">
-    <a
-      class="self-start text-sm text-muted mb-4 transition-colors hover:text-primary"
-      routerLink="/"
+  <header class="case-header">
+    <app-aurora-background intensity="section" [showSparkles]="false" />
+    <div
+      class="container-x relative grid gap-10 pb-16 border-b border-border lg:grid-cols-[1.5fr_1fr] lg:items-center"
     >
-      ← Back to home
-    </a>
-    <p class="eyebrow">Case study</p>
-    <h1
-      class="font-display font-semibold text-foreground max-w-[28ch] leading-[1.05] text-[clamp(2rem,5vw,3.5rem)]"
-    >
-      {{ study().title }}
-    </h1>
-    <p class="text-muted text-base">{{ study().client }} · {{ study().period }}</p>
-    <p
-      class="text-muted-foreground max-w-[70ch] leading-relaxed text-[clamp(1.05rem,1.4vw,1.25rem)]"
-    >
-      {{ study().summary }}
-    </p>
-    @if (study().link; as link) {
-      <a
-        class="self-start mt-2 text-sm text-primary border-b border-primary-soft pb-1 transition-colors hover:text-foreground"
-        [href]="link.href"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {{ link.label }} ↗
-      </a>
-    }
+      <div class="flex flex-col gap-4">
+        <a
+          class="self-start text-sm text-muted mb-4 transition-colors hover:text-primary"
+          routerLink="/"
+        >
+          ← Back to home
+        </a>
+        <p class="eyebrow">Case study</p>
+        <h1
+          class="font-display font-semibold text-foreground max-w-[28ch] leading-[1.05] text-[clamp(2rem,5vw,3.5rem)]"
+        >
+          <span appAuroraText>{{ titleHead() }}</span>{{ titleRest() }}
+        </h1>
+        <p class="text-muted text-base">{{ study().client }} · {{ study().period }}</p>
+        <p
+          class="text-muted-foreground max-w-[70ch] leading-relaxed text-[clamp(1.05rem,1.4vw,1.25rem)]"
+        >
+          {{ study().summary }}
+        </p>
+        @if (study().link; as link) {
+          <a
+            class="self-start mt-2 text-sm text-primary border-b border-primary-soft pb-1 transition-colors hover:text-foreground"
+            [href]="link.href"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ link.label }} ↗
+          </a>
+        }
+      </div>
+    </div>
   </header>
 
   <section
@@ -44,6 +51,9 @@
           <li class="chip">{{ tech }}</li>
         }
       </ul>
+      @if (studyLogos().length) {
+        <app-tech-logo-cloud class="mt-6 block" [names]="studyLogos()" layout="grid" />
+      }
     </div>
   </section>
 
@@ -65,7 +75,7 @@
     <ul class="flex flex-col gap-6 list-none p-0 m-0">
       @for (step of study().approach; track $index) {
         <li class="approach-step">
-          <span class="step-num">{{ $index + 1 }}</span>
+          <span class="step-num" appAuroraText>{{ $index + 1 }}</span>
           <p class="text-muted-foreground leading-relaxed">{{ step }}</p>
         </li>
       }
@@ -80,7 +90,7 @@
       @for (outcome of study().outcomes; track $index) {
         <li class="flex items-start gap-3.5 text-base text-muted-foreground">
           <svg
-            class="text-primary shrink-0 mt-1"
+            class="text-primary-strong shrink-0 mt-1"
             width="20"
             height="20"
             viewBox="0 0 20 20"
