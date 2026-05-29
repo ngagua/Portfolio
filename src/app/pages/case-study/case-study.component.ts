@@ -87,7 +87,7 @@ export class CaseStudyComponent {
     return space === -1 ? '' : title.slice(space);
   });
 
-  /** Client-only flag so the cover-art drift matches SSR markup on hydration. */
+  /** Client-only flag, set after hydration for client-gated rendering. */
   protected readonly isClient = signal(false);
 
   constructor() {

@@ -1,16 +1,19 @@
 @reference '../../../styles.css';
 
 .now-section {
-  @apply relative py-7 border-y bg-card;
-  border-color: var(--color-border-strong);
+  @apply relative py-10;
+}
+
+/* Contained aurora panel (replaces the old full-width border-y band). */
+.now-panel {
+  position: relative;
+  padding: clamp(1.1rem, 2.5vw, 1.6rem) clamp(1.25rem, 3vw, 2rem);
+  border-radius: var(--radius-card-lg);
+  border: 1px solid color-mix(in oklab, var(--color-primary) 18%, var(--color-border));
   background:
-    linear-gradient(
-      90deg,
-      color-mix(in oklab, var(--color-primary) 10%, transparent),
-      transparent 40%,
-      color-mix(in oklab, var(--color-aurora-violet) 10%, transparent)
-    ),
+    var(--gradient-aurora-subtle),
     var(--color-card);
+  box-shadow: 0 24px 60px -36px color-mix(in oklab, var(--color-primary) 45%, transparent);
 }
 
 .now-label {

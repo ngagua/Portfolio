@@ -6,7 +6,8 @@ import { TechLogoComponent } from './tech-logo.component';
  * marquee (the list is duplicated so the loop is seamless); `grid` renders a
  * centred wrap. Purely decorative reinforcement of the stack already listed in
  * text nearby, so the whole cloud is `aria-hidden`. Under reduced motion the
- * marquee falls back to a static centred wrap.
+ * marquee falls back to a static centred wrap. `colored` (on by default) tints
+ * each mark in its tech's brand hue.
  */
 @Component({
   selector: 'app-tech-logo-cloud',
@@ -17,11 +18,11 @@ import { TechLogoComponent } from './tech-logo.component';
     <div class="cloud" [class.is-scroll]="layout() === 'scroll'" aria-hidden="true">
       <div class="track">
         @for (n of names(); track $index) {
-          <app-tech-logo [name]="n" />
+          <app-tech-logo [name]="n" [colored]="colored()" />
         }
         @if (layout() === 'scroll') {
           @for (n of names(); track 'dup-' + $index) {
-            <app-tech-logo [name]="n" />
+            <app-tech-logo [name]="n" [colored]="colored()" />
           }
         }
       </div>
@@ -34,4 +35,5 @@ import { TechLogoComponent } from './tech-logo.component';
 export class TechLogoCloudComponent {
   readonly names = input<string[]>([]);
   readonly layout = input<'scroll' | 'grid'>('scroll');
+  readonly colored = input(true);
 }

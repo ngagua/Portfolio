@@ -100,8 +100,12 @@ export type TechLogoName =
   host: {
     'aria-hidden': 'true',
     class: 'tech-logo',
+    '[class.is-colored]': 'colored()',
+    '[attr.data-slug]': 'name()',
   },
 })
 export class TechLogoComponent {
   readonly name = input<string>('');
+  /** When true, tint the glyph in its tech's brand hue instead of mono. */
+  readonly colored = input(false);
 }

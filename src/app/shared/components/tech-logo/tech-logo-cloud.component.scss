@@ -10,14 +10,21 @@
 }
 
 .track {
-  @apply flex items-center gap-8;
+  @apply flex items-center;
 }
 
+/* Marquee: a uniform trailing margin per item (not flex `gap`) makes one
+ * duplicated copy exactly half the track width, so translateX(-50%) loops
+ * seamlessly with no hitch at the last icons. */
 .cloud.is-scroll .track {
   width: max-content;
   animation: marquee 34s linear infinite;
 }
+.cloud.is-scroll .track app-tech-logo {
+  margin-inline-end: 2.5rem;
+}
 
+/* Grid: centred wrap with gap. */
 .cloud:not(.is-scroll) .track {
   @apply flex-wrap justify-center gap-x-8 gap-y-6;
 }
@@ -34,8 +41,11 @@
     -webkit-mask-image: none;
   }
   .cloud.is-scroll .track {
-    @apply flex-wrap justify-center;
+    @apply flex-wrap justify-center gap-x-8 gap-y-6;
     width: auto;
     animation: none;
+  }
+  .cloud.is-scroll .track app-tech-logo {
+    margin-inline-end: 0;
   }
 }

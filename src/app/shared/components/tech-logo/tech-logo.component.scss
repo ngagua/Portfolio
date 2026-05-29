@@ -37,3 +37,45 @@ svg text {
   fill: currentColor;
   stroke: none;
 }
+
+/* ---------- brand colours (only when [colored] is set) ----------
+ * Glyphs draw with currentColor, so tinting the host recolours the mark.
+ * Brand hues, lightened for legibility on the near-black background. */
+:host(.is-colored) {
+  color: var(--color-muted-foreground); /* fallback for unknown slugs */
+}
+:host(.is-colored[data-slug='angular']) {
+  color: #ff5277;
+}
+:host(.is-colored[data-slug='typescript']) {
+  color: #4fa8ff;
+}
+:host(.is-colored[data-slug='java']) {
+  color: #f4923b;
+}
+:host(.is-colored[data-slug='spring']) {
+  color: #8fd14f;
+}
+:host(.is-colored[data-slug='docker']) {
+  color: #4bb4f0;
+}
+:host(.is-colored[data-slug='drupal']) {
+  color: #5bb0e8;
+}
+:host(.is-colored[data-slug='git']) {
+  color: #f4623a;
+}
+:host(.is-colored[data-slug='rxjs']) {
+  color: #e054c0;
+}
+:host(.is-colored[data-slug='ngrx']) {
+  color: #b26be8;
+}
+:host(.is-colored[data-slug='mysql']) {
+  color: #46c8de;
+}
+
+/* Per-slug rules outrank :host(:hover), so the brand hue stays on hover; just brighten. */
+:host(.is-colored:hover) {
+  filter: brightness(1.12);
+}

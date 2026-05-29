@@ -34,6 +34,15 @@
   }
 }
 
+/* Active link (scroll-spy): solid colour + a fully-grown aurora underline. */
+.nav-link.is-active {
+  color: var(--color-foreground);
+
+  &::after {
+    transform: scaleX(1);
+  }
+}
+
 .bar {
   @apply block transition-transform duration-200;
   width: 1.1rem;

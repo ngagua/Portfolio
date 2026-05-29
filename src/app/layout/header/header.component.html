@@ -19,6 +19,8 @@
     @for (link of links; track link.href) {
       <a
         class="nav-link text-sm text-muted hover:text-foreground transition-colors"
+        [class.is-active]="activeId() === link.id"
+        [attr.aria-current]="activeId() === link.id ? 'page' : null"
         [href]="link.href"
         (click)="closeMenu()"
       >
@@ -50,7 +52,10 @@
   >
     @for (link of links; track link.href) {
       <a
-        class="text-lg text-foreground py-2.5 hover:text-primary transition-colors"
+        class="text-lg py-2.5 transition-colors hover:text-primary"
+        [class.text-primary]="activeId() === link.id"
+        [class.text-foreground]="activeId() !== link.id"
+        [attr.aria-current]="activeId() === link.id ? 'page' : null"
         [href]="link.href"
         (click)="closeMenu()"
       >
