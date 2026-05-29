@@ -7,14 +7,16 @@
     <p class="eyebrow" data-hero="eyebrow">Open to senior roles · {{ location }}</p>
 
     <h1
-      class="font-display font-semibold text-foreground flex flex-col gap-1 leading-none tracking-tighter text-[clamp(2.5rem,7vw,5.5rem)]"
+      class="font-display font-semibold text-foreground flex flex-col gap-2 leading-[1.05] tracking-tighter"
       data-hero="title"
     >
-      <span class="inline-block" data-hero="line">{{ name }}</span>
-      <span class="inline-block" data-hero="line" appAuroraText> Senior full-stack developer </span>
-      <span class="inline-block text-muted font-medium" data-hero="line">
-        Angular front-ends · Spring back-ends
-      </span>
+      <span class="inline-block text-[clamp(2.5rem,7vw,5.25rem)]" data-hero="line">{{ name }}</span>
+      <span
+        class="inline-block text-[clamp(1.4rem,3.2vw,2.5rem)] font-semibold text-balance"
+        data-hero="line"
+        appAuroraText
+        >{{ role }}</span
+      >
     </h1>
 
     <p
