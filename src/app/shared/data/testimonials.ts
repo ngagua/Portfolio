@@ -9,7 +9,7 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Nikoloz is extremely responsible - one of the first to join stand-up, always on top of his work and providing clear updates. He's super detail-oriented, always willing to help, and consistently sets a high standard. A pleasure working with someone so committed and dependable.",
+      "Nikoloz combines strong technical skills with a deep sense of responsibility. You can trust him with critical projects and know they’ll be handled professionally. He's super detail-oriented, always willing to help, and consistently sets a high standard. A pleasure working with someone so committed and dependable.",
     authorName: 'Meghan Keener',
     authorRole: 'Product Owner',
     authorContext: 'Vitality Group',
@@ -17,7 +17,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      'Nikusha is truly exceptional in every aspect - an excellent developer who already thinks and works at an architect level. He always shares his knowledge, is very hardworking, and is a trustworthy professional. A real privilege to work with him.',
+      'It is a real privilege to work with Nikoloz. His influence went far beyond the code he wrote. He improved our engineering standards, challenged assumptions, and helped raise the quality of the entire team. Nikoloz always shares his knowledge, is very hardworking, and is a reliable professional.',
     authorName: 'Zain Zafrani',
     authorRole: 'Software Engineer · Pod Ventricle Lead',
     authorContext: 'Emory CARES Program',
