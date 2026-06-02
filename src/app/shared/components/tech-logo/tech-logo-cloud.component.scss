@@ -13,9 +13,18 @@
   @apply flex items-center;
 }
 
-/* Marquee: a uniform trailing margin per item (not flex `gap`) makes one
- * duplicated copy exactly half the track width, so translateX(-50%) loops
- * seamlessly with no hitch at the last icons. */
+/* Each repeated copy is wrapped so non-animated layouts can show just one
+ * (see reduced-motion below). `display: contents` keeps the icons as direct
+ * flex children of `.track`, so spacing and wrap rules are unaffected. */
+.track-copy {
+  display: contents;
+}
+
+/* Marquee: a uniform trailing margin per item (not flex `gap`) makes every
+ * copy an equal slice of the track, so a shift of exactly one copy
+ * (translateX(-100%/--copies)) loops seamlessly with no hitch at the last icons.
+ * `--copies` (bound from the component) must be high enough that one copy is
+ * wider than the container, or the track's end shows as a trailing gap. */
 .cloud.is-scroll .track {
   width: max-content;
   animation: marquee 34s linear infinite;
@@ -31,7 +40,8 @@
 
 @keyframes marquee {
   to {
-    transform: translateX(-50%);
+    /* shift by exactly one copy (1 / --copies of the track) for a seamless loop */
+    transform: translateX(calc(-100% / var(--copies, 2)));
   }
 }
 
@@ -47,5 +57,9 @@
   }
   .cloud.is-scroll .track app-tech-logo {
     margin-inline-end: 0;
+  }
+  /* Static wrap needs the list only once, not every marquee copy. */
+  .cloud.is-scroll .track-copy:not(:first-child) {
+    display: none;
   }
 }
