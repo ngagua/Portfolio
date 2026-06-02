@@ -19,7 +19,13 @@ interface Pillar {
           <h2 class="section-title">A decade of leading public-sector teams.</h2>
           <p class="section-lead">
             From 2010 to 2022, I served at the
-            <strong class="lead-strong font-semibold">Georgia Revenue Service</strong>, holding
+            <a
+              href="https://rs.ge/Home-en"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="lead-strong font-semibold underline decoration-1 underline-offset-2 transition-colors hover:text-primary"
+              >Georgia Revenue Service</a
+            >, holding
             several roles culminating in
             <strong class="lead-strong font-semibold">Deputy Head of Division</strong>
             for eight years. I led teams of up to
