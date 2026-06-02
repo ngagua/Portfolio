@@ -43,6 +43,15 @@
       novalidate
       appReveal
     >
+      <!-- Honeypot: hidden from people; bots that fill it are silently dropped by Formspree -->
+      <input
+        type="text"
+        formControlName="_gotcha"
+        tabindex="-1"
+        autocomplete="off"
+        aria-hidden="true"
+        class="hidden"
+      />
       <div class="field">
         <label for="contact-name">Your name</label>
         <input

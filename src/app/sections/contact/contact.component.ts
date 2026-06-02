@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { profile, socials } from '../../shared/data/profile';
 import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/your-form-id';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xzdwnnpd';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -27,6 +27,8 @@ export class ContactComponent {
     name: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
     message: ['', [Validators.required, Validators.minLength(10)]],
+    // Honeypot: bots fill this hidden field, humans don't. Formspree drops those.
+    _gotcha: [''],
   });
 
   protected submit(): void {
@@ -38,9 +40,11 @@ export class ContactComponent {
     this.status.set('submitting');
 
     this.http
-      .post(FORMSPREE_ENDPOINT, this.form.getRawValue(), {
-        headers: { Accept: 'application/json' },
-      })
+      .post(
+        FORMSPREE_ENDPOINT,
+        { ...this.form.getRawValue(), _subject: 'New message from your portfolio' },
+        { headers: { Accept: 'application/json' } },
+      )
       .subscribe({
         next: () => {
           this.status.set('success');

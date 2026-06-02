@@ -24,7 +24,7 @@ interface Pillar {
               target="_blank"
               rel="noopener noreferrer"
               class="lead-strong font-semibold underline decoration-1 underline-offset-2 transition-colors hover:text-primary"
-              >Georgia Revenue Service</a
+              >Georgian Revenue Service</a
             >, holding
             several roles culminating in
             <strong class="lead-strong font-semibold">Deputy Head of Division</strong>
