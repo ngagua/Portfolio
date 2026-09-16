@@ -37,6 +37,23 @@
     </div>
   </header>
 
+  @if (study().metrics?.length) {
+    <section class="container-x py-12 border-b border-border" aria-label="Impact at a glance">
+      <ul class="grid grid-cols-2 gap-8 list-none p-0 m-0 sm:grid-cols-3">
+        @for (metric of study().metrics; track metric.label) {
+          <li class="flex flex-col gap-1.5">
+            <span
+              class="font-display font-semibold text-foreground text-[clamp(1.75rem,4vw,2.75rem)]"
+              appAuroraText
+              >{{ metric.value }}{{ metric.suffix }}</span
+            >
+            <span class="text-sm text-muted">{{ metric.label }}</span>
+          </li>
+        }
+      </ul>
+    </section>
+  }
+
   <section
     class="container-x grid gap-8 py-12 border-b border-border md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] md:gap-12"
   >
